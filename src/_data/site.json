@@ -4,5 +4,6 @@
   "description": "Starter code for your 11ty blog Boilerplate",
   "url": "https://example.com",
   "locale": "en",
-  "author": "Anonymous"
+  "author": "Anonymous",
+  "header_bg_class": "bg-blue-600 hover:bg-blue-700"
 }
