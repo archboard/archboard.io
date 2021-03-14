@@ -24,33 +24,6 @@
     />
     <meta property="og:locale" content="<%= site.locale %>" />
     <meta property="og:site_name" content="<%= site.site_name %>" />
-    <% if (locals.tags == "posts") { %>
-    <meta property="og:type" content="article" />
-    <meta property="article:published_time" content="<%= date.toISOString() %>" />
-    <script type="application/ld+json">
-      {
-        "description": "<%= (!!locals.description) ? description : site.description %>",
-        "author": { "@type": "Person", "name": "<%= site.author %>" },
-        "@type": "BlogPosting",
-        "url": "<%= `${site.url}${page.url}` %>",
-        "publisher": {
-          "@type": "Organization",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "<%= `${site.url}/assets/images/logo.png` %>"
-          },
-          "name": "<%= site.author %>"
-        },
-        "headline": "<%= title %>",
-        "datePublished": "<%= date.toISOString() %>",
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "<%= `${site.url}${page.url}` %>"
-        },
-        "@context": "http://schema.org"
-      }
-    </script>
-    <% } %>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <%- include('webpack.ejs') %>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js"></script>
@@ -104,16 +77,6 @@
                 </svg>
               </button>
 
-              <!--
-                'Solutions' flyout menu, show/hide based on flyout menu state.
-
-                Entering: "transition ease-out duration-200"
-                  From: "opacity-0 translate-y-1"
-                  To: "opacity-100 translate-y-0"
-                Leaving: "transition ease-in duration-150"
-                  From: "opacity-100 translate-y-0"
-                  To: "opacity-0 translate-y-1"
-              -->
               <div
                 x-show="isOpen()"
                 x-on:click.away="close"
@@ -128,7 +91,6 @@
                 <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                   <div class="z-20 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                     <a href="/products/tidal-ptc/" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                      <!-- Heroicon name: chart-bar -->
                       <svg class="flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 468.65 468.67" class="h-10 w-auto"><path fill="#047481" d="M468.65 234.34c0 129.42-104.92 234.33-234.31 234.33S0 363.76 0 234.34 104.93 0 234.34 0s234.31 104.91 234.31 234.34z"></path><g fill="#7edce2"><path d="M234.14 432.8C133.65 432.8 48.48 357.72 36 258.14A12.69 12.69 0 0161.2 255c10.87 86.9 85.22 152.43 172.94 152.43 81.12 0 152.7-57.44 170.17-136.55a12.69 12.69 0 1124.78 5.47C409.07 367 327.08 432.8 234.14 432.8z"></path><path d="M317.49 260.62a31 31 0 1131.05-31 31.08 31.08 0 01-31.05 31zm0-40.52a9.48 9.48 0 109.48 9.48 9.49 9.49 0 00-9.48-9.48zM322.81 149.74a24.46 24.46 0 1124.46-24.46 24.49 24.49 0 01-24.46 24.46zm0-29.89a5.43 5.43 0 105.43 5.43 5.44 5.44 0 00-5.43-5.43z"></path><path d="M320.77 334.09c-37.95 0-78.59-13.46-115-38.67C145.26 253.67 76.49 255.05 55 267.54a12.67 12.67 0 01-18.88-8.82c-.6-3.53-14.17-87.17 43.8-136.63a12.69 12.69 0 0116.43 19.31c-33.44 28.54-37.17 73.54-36.52 97.25 37.58-9.89 102.93-3.73 160.32 35.9 40 27.67 85.17 39.36 123.73 32.05 26.46-5 48-18.85 62.32-40.07a12.69 12.69 0 0121.05 14.17c-18.19 27-45.39 44.56-78.66 50.85a151.29 151.29 0 01-27.82 2.54z"></path><path d="M313.83 380.26c-38.21 0-79.64-13.11-117.39-38.63C149.68 310.06 94.21 302 60 308a12.69 12.69 0 01-4.37-25c36.37-6.32 98.82-.33 155 37.63 55.85 37.74 119.74 45.08 162.75 18.69a12.69 12.69 0 0113.27 21.64c-21.14 12.93-46.19 19.3-72.82 19.3z"></path><path d="M287.62 425a14.47 14.47 0 01-1.6-.1c-32.56-4.1-65.59-16.95-95.51-37.16C158.16 365.93 118 353 80.19 352.29a12.69 12.69 0 01-12.45-12.92 12.91 12.91 0 0112.93-12.46 232.23 232.23 0 01124 39.83c26.64 18 55.85 29.42 84.48 33a12.69 12.69 0 01-1.53 25.26zM212.92 297.68a12.58 12.58 0 01-5.79-1.41c-34.75-17.88-42-58.75-28.8-86.36 11.49-24 36-32.71 61-21.63A12.68 12.68 0 01229 211.47c-15.89-7-23.88 1.23-27.78 9.38-7.06 14.76-4.89 41.33 17.51 52.86a12.69 12.69 0 01-5.82 24z"></path><path d="M186.88 282.34a12.71 12.71 0 01-7.76-2.65c-29.59-22.89-41.54-64.67-28.43-99.36 11.18-29.55 37.08-45.86 69-43.87a12.69 12.69 0 01-1.64 25.32c-20.7-1.47-36.54 8.71-43.66 27.52-8 21-3.56 51.92 20.22 70.31a12.69 12.69 0 01-7.77 22.73z"></path><path d="M151.73 268.5a12.63 12.63 0 01-4.71-.91c-31.22-12.49-46.9-52.08-38.14-96.28 7.87-39.64 38.63-85.65 99.44-85.65h1.36a12.69 12.69 0 01-.14 25.38h-1.18c-45.42 0-68.31 33.59-74.58 65.2s3.28 60 22.67 67.79a12.69 12.69 0 01-4.72 24.47z"></path><path d="M101.59 257.68a12.65 12.65 0 01-9.59-4.35c-15.85-18.19-27.65-66.28-19-112.27C78.77 110 96.22 67.4 146.31 41.1c29.37-15.39 62.94-21.47 92.05-16.79a12.69 12.69 0 01-4.06 25.06c-23.84-3.88-51.6 1.3-76.2 14.21-41.1 21.56-55.41 56.58-60.2 82.16-7.77 41.52 4.3 80.66 13.25 90.91a12.69 12.69 0 01-9.56 21z"></path></g></svg>
                       <div class="ml-4">
                         <p class="text-base font-medium text-teal-600">
@@ -140,178 +102,22 @@
                       </div>
                     </a>
                   </div>
-                  <div class="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                    <div class="flow-root">
-                      <a href="#" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">
-                        <!-- Heroicon name: play -->
-                        <svg class="flex-shrink-0 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span class="ml-3">Watch Demo</span>
-                      </a>
-                    </div>
-
-                    <div class="flow-root">
-                      <a href="#" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">
-                        <!-- Heroicon name: phone -->
-                        <svg class="flex-shrink-0 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                        <span class="ml-3">Contact Sales</span>
-                      </a>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
 
-            <a href="/docs" class="text-base font-medium text-gray-500 hover:text-gray-900">
-              Docs
+            <a href="/about/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+              About
             </a>
-
-            <div x-data="dropdown()" class="relative">
-              <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-              <button x-on:click.prevent="toggle" type="button" class="group bg-white rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                <span>More</span>
-                <!--
-                  Heroicon name: chevron-down
-
-                  Item active: "text-gray-600", Item inactive: "text-gray-400"
-                -->
-                <svg class="ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </button>
-
-              <!--
-                'More' flyout menu, show/hide based on flyout menu state.
-
-                Entering: "transition ease-out duration-200"
-                  From: "opacity-0 translate-y-1"
-                  To: "opacity-100 translate-y-0"
-                Leaving: "transition ease-in duration-150"
-                  From: "opacity-100 translate-y-0"
-                  To: "opacity-0 translate-y-1"
-              -->
-              <div x-show="isOpen()" x-on:click.away="close" class="absolute left-1/2 z-10 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
-                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                  <div class="z-20 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                    <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                      <!-- Heroicon name: support -->
-                      <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-                      </svg>
-                      <div class="ml-4">
-                        <p class="text-base font-medium text-gray-900">
-                          Help Center
-                        </p>
-                        <p class="mt-1 text-sm text-gray-500">
-                          Get all of your questions answered in our forums or contact support.
-                        </p>
-                      </div>
-                    </a>
-
-                    <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                      <!-- Heroicon name: bookmark-alt -->
-                      <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <div class="ml-4">
-                        <p class="text-base font-medium text-gray-900">
-                          Guides
-                        </p>
-                        <p class="mt-1 text-sm text-gray-500">
-                          Learn how to maximize our platform to get the most out of it.
-                        </p>
-                      </div>
-                    </a>
-
-                    <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                      <!-- Heroicon name: calendar -->
-                      <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <div class="ml-4">
-                        <p class="text-base font-medium text-gray-900">
-                          Events
-                        </p>
-                        <p class="mt-1 text-sm text-gray-500">
-                          See what meet-ups and other events we might be planning near you.
-                        </p>
-                      </div>
-                    </a>
-
-                    <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                      <!-- Heroicon name: shield-check -->
-                      <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                      </svg>
-                      <div class="ml-4">
-                        <p class="text-base font-medium text-gray-900">
-                          Security
-                        </p>
-                        <p class="mt-1 text-sm text-gray-500">
-                          Understand how we take your privacy seriously.
-                        </p>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
-                    <div>
-                      <h3 class="text-sm tracking-wide font-medium text-gray-500 uppercase">
-                        Recent Posts
-                      </h3>
-                      <ul class="mt-4 space-y-4">
-                        <li class="text-base truncate">
-                          <a href="#" class="font-medium text-gray-900 hover:text-gray-700">
-                            Boost your conversion rate
-                          </a>
-                        </li>
-
-                        <li class="text-base truncate">
-                          <a href="#" class="font-medium text-gray-900 hover:text-gray-700">
-                            How to use search engine optimization to drive traffic to your site
-                          </a>
-                        </li>
-
-                        <li class="text-base truncate">
-                          <a href="#" class="font-medium text-gray-900 hover:text-gray-700">
-                            Improve your customer experience
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="mt-5 text-sm">
-                      <a href="#" class="font-medium text-blue-600 hover:text-blue-500"> View all posts <span aria-hidden="true">&rarr;</span></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </nav>
-
           <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-              Sign in
-            </a>
-            <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white <%= locals.header_bg_class || site.header_bg_class %>">
-              Sign up
+            <span class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+              Sign up coming soon
             </a>
           </div>
         </div>
       </div>
 
-      <!--
-        Mobile menu, show/hide based on mobile menu state.
-
-        Entering: "duration-200 ease-out"
-          From: "opacity-0 scale-95"
-          To: "opacity-100 scale-100"
-        Leaving: "duration-100 ease-in"
-          From: "opacity-100 scale-100"
-          To: "opacity-0 scale-95"
-      -->
       <div
         x-show="showMobileMenu"
         x-transition:enter="duration-200 ease-out"
@@ -326,7 +132,7 @@
           <div class="pt-5 pb-6 px-5">
             <div class="flex items-center justify-between">
               <div>
-                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-blue-600.svg" alt="Workflow">
+                <img class="h-8 w-auto" src="/assets/images/square-blue.svg" alt="Archboard">
               </div>
               <div class="-mr-2">
                 <button x-on:click.prevent="showMobileMenu = false" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
@@ -340,53 +146,10 @@
             </div>
             <div class="mt-6">
               <nav class="grid gap-y-8">
-                <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                  <!-- Heroicon name: chart-bar -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
+                <a href="/products/tidal-ptc/" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                  <svg class="flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 468.65 468.67" class="h-10 w-auto"><path fill="#047481" d="M468.65 234.34c0 129.42-104.92 234.33-234.31 234.33S0 363.76 0 234.34 104.93 0 234.34 0s234.31 104.91 234.31 234.34z"></path><g fill="#7edce2"><path d="M234.14 432.8C133.65 432.8 48.48 357.72 36 258.14A12.69 12.69 0 0161.2 255c10.87 86.9 85.22 152.43 172.94 152.43 81.12 0 152.7-57.44 170.17-136.55a12.69 12.69 0 1124.78 5.47C409.07 367 327.08 432.8 234.14 432.8z"></path><path d="M317.49 260.62a31 31 0 1131.05-31 31.08 31.08 0 01-31.05 31zm0-40.52a9.48 9.48 0 109.48 9.48 9.49 9.49 0 00-9.48-9.48zM322.81 149.74a24.46 24.46 0 1124.46-24.46 24.49 24.49 0 01-24.46 24.46zm0-29.89a5.43 5.43 0 105.43 5.43 5.44 5.44 0 00-5.43-5.43z"></path><path d="M320.77 334.09c-37.95 0-78.59-13.46-115-38.67C145.26 253.67 76.49 255.05 55 267.54a12.67 12.67 0 01-18.88-8.82c-.6-3.53-14.17-87.17 43.8-136.63a12.69 12.69 0 0116.43 19.31c-33.44 28.54-37.17 73.54-36.52 97.25 37.58-9.89 102.93-3.73 160.32 35.9 40 27.67 85.17 39.36 123.73 32.05 26.46-5 48-18.85 62.32-40.07a12.69 12.69 0 0121.05 14.17c-18.19 27-45.39 44.56-78.66 50.85a151.29 151.29 0 01-27.82 2.54z"></path><path d="M313.83 380.26c-38.21 0-79.64-13.11-117.39-38.63C149.68 310.06 94.21 302 60 308a12.69 12.69 0 01-4.37-25c36.37-6.32 98.82-.33 155 37.63 55.85 37.74 119.74 45.08 162.75 18.69a12.69 12.69 0 0113.27 21.64c-21.14 12.93-46.19 19.3-72.82 19.3z"></path><path d="M287.62 425a14.47 14.47 0 01-1.6-.1c-32.56-4.1-65.59-16.95-95.51-37.16C158.16 365.93 118 353 80.19 352.29a12.69 12.69 0 01-12.45-12.92 12.91 12.91 0 0112.93-12.46 232.23 232.23 0 01124 39.83c26.64 18 55.85 29.42 84.48 33a12.69 12.69 0 01-1.53 25.26zM212.92 297.68a12.58 12.58 0 01-5.79-1.41c-34.75-17.88-42-58.75-28.8-86.36 11.49-24 36-32.71 61-21.63A12.68 12.68 0 01229 211.47c-15.89-7-23.88 1.23-27.78 9.38-7.06 14.76-4.89 41.33 17.51 52.86a12.69 12.69 0 01-5.82 24z"></path><path d="M186.88 282.34a12.71 12.71 0 01-7.76-2.65c-29.59-22.89-41.54-64.67-28.43-99.36 11.18-29.55 37.08-45.86 69-43.87a12.69 12.69 0 01-1.64 25.32c-20.7-1.47-36.54 8.71-43.66 27.52-8 21-3.56 51.92 20.22 70.31a12.69 12.69 0 01-7.77 22.73z"></path><path d="M151.73 268.5a12.63 12.63 0 01-4.71-.91c-31.22-12.49-46.9-52.08-38.14-96.28 7.87-39.64 38.63-85.65 99.44-85.65h1.36a12.69 12.69 0 01-.14 25.38h-1.18c-45.42 0-68.31 33.59-74.58 65.2s3.28 60 22.67 67.79a12.69 12.69 0 01-4.72 24.47z"></path><path d="M101.59 257.68a12.65 12.65 0 01-9.59-4.35c-15.85-18.19-27.65-66.28-19-112.27C78.77 110 96.22 67.4 146.31 41.1c29.37-15.39 62.94-21.47 92.05-16.79a12.69 12.69 0 01-4.06 25.06c-23.84-3.88-51.6 1.3-76.2 14.21-41.1 21.56-55.41 56.58-60.2 82.16-7.77 41.52 4.3 80.66 13.25 90.91a12.69 12.69 0 01-9.56 21z"></path></g></svg>
                   <span class="ml-3 text-base font-medium text-gray-900">
-                    Analytics
-                  </span>
-                </a>
-
-                <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                  <!-- Heroicon name: cursor-click -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-                  </svg>
-                  <span class="ml-3 text-base font-medium text-gray-900">
-                    Engagement
-                  </span>
-                </a>
-
-                <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                  <!-- Heroicon name: shield-check -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                  <span class="ml-3 text-base font-medium text-gray-900">
-                    Security
-                  </span>
-                </a>
-
-                <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                  <!-- Heroicon name: view-grid -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                  </svg>
-                  <span class="ml-3 text-base font-medium text-gray-900">
-                    Integrations
-                  </span>
-                </a>
-
-                <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                  <!-- Heroicon name: refresh -->
-                  <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                  <span class="ml-3 text-base font-medium text-gray-900">
-                    Automations
+                    Tidal PTC
                   </span>
                 </a>
               </nav>
@@ -394,44 +157,9 @@
           </div>
           <div class="py-6 px-5 space-y-6">
             <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-              <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                Docs
+              <a href="/about/" class="text-base font-medium text-gray-900 hover:text-gray-700">
+                About
               </a>
-
-              <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                Enterprise
-              </a>
-
-              <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                Blog
-              </a>
-
-              <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                Help Center
-              </a>
-
-              <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                Guides
-              </a>
-
-              <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                Security
-              </a>
-
-              <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                Events
-              </a>
-            </div>
-            <div>
-              <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700">
-                Sign up
-              </a>
-              <p class="mt-6 text-center text-base font-medium text-gray-500">
-                Existing customer?
-                <a href="#" class="text-blue-600 hover:text-blue-500">
-                  Sign in
-                </a>
-              </p>
             </div>
           </div>
         </div>
@@ -494,14 +222,14 @@
                     </a>
                   </li>
 
-                  <li>
+                  <!-- <li>
                     <a href="/products/plugins/" class="text-base text-gray-500 hover:text-gray-900">
                       PowerSchool Plugin Development
                     </a>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
-              <div class="mt-12 md:mt-0">
+              <!-- <div class="mt-12 md:mt-0">
                 <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
                   Support
                 </h3>
@@ -518,7 +246,7 @@
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
             <div class="md:grid md:grid-cols-2 md:gap-8">
               <div>
@@ -533,7 +261,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="mt-12 md:mt-0">
+              <!-- <div class="mt-12 md:mt-0">
                 <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
                   Legal
                 </h3>
@@ -550,7 +278,7 @@
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
