@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, global-require */
 const plugins = [
   require('postcss-import'),
-  require('@tailwindcss/jit'),
+  require('tailwindcss'),
   require('autoprefixer'),
 ];
 
