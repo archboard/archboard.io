@@ -3,6 +3,7 @@ const uiColors = require('@tailwindcss/ui/colors')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  mode: 'jit',
   purge: [
     './src/**/*.ejs',
     './src/**/*.md',
