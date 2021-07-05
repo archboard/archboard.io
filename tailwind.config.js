@@ -44,7 +44,22 @@ module.exports = {
           `'Inter'`,
           ...defaultTheme.fontFamily.sans,
         ]
-      }
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.500'),
+            a: {
+              color: theme('colors.primary.500'),
+              'transition-property': 'color',
+              'transition-duration': '150ms',
+              '&:hover': {
+                color: theme('colors.primary.400'),
+              },
+            },
+          },
+        },
+      }),
     },
   },
   variants: {},
