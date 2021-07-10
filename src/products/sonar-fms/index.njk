@@ -1,0 +1,186 @@
+---
+layout: layouts/base.ejs
+title: Sonar FMS
+description: Track student fee balances and send invoices.
+site:
+  header_bg_class: bg-sonar-600
+  color_logo: false
+  light_nav: false
+---
+
+<div class="py-16 bg-gray-50 overflow-hidden relative lg:py-24">
+  <svg class="absolute right-0 top-0 transform h-[30rem] md:h-[45rem] translate-x-1/3 md:translate-x-1/4 translate-y-24 w-auto opacity-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 776.39 776.39"><circle fill="#164e63" cx="388.19" cy="388.19" r="388.19"/><path fill="#67e8f9" d="M388.07 730.57a342.48 342.48 0 01-323.84-231 20 20 0 1137.83-13 302.42 302.42 0 00588.38-98.38c0-6-.17-12-.52-18a20 20 0 0139.93-2.35c.39 6.73.59 13.58.59 20.34a342.12 342.12 0 01-342.37 342.39zM74.74 332.11a20 20 0 01-19.45-24.71 342.49 342.49 0 01525.08-202.51A20 20 0 01557.88 138 302.49 302.49 0 0094.17 316.81a20 20 0 01-19.43 15.3z"/><path fill="#67e8f9" d="M448.69 493.22A20 20 0 00423 481.49a100.84 100.84 0 01-13.25 3.94h-.22a99.73 99.73 0 01-31.07 1.9l-.82-.08-.91-.1a100.1 100.1 0 01-29.91-8.36c-1.5-.69-3-1.4-4.44-2.16l-.1-.05c-1.3-.67-2.57-1.37-3.83-2.09l-1.19-.71c-.8-.47-1.59-.95-2.37-1.45l-.41-.25c-.64-.41-1.27-.83-1.9-1.25l-.67-.46a100.82 100.82 0 01-11-8.65l-.62-.57c-.9-.84-1.79-1.69-2.66-2.56q-.84-.83-1.65-1.68c-.48-.5-.95-1-1.41-1.51-.81-.88-1.6-1.77-2.38-2.68l-.5-.6a99.52 99.52 0 01-16.89-29.08q-.87-2.32-1.62-4.66l-.06-.2c-.19-.6-.37-1.2-.55-1.8s-.37-1.26-.54-1.89v-.12c-.43-1.59-.83-3.19-1.18-4.8a100 100 0 01-1.91-31.06c0-.28.05-.56.08-.84s.07-.59.11-.88a99.7 99.7 0 018.36-29.94c.68-1.5 1.4-3 2.15-4.44v-.08c.68-1.3 1.39-2.59 2.11-3.85.23-.4.46-.79.7-1.18.47-.8 1-1.59 1.45-2.38.09-.13.17-.27.26-.41.41-.64.82-1.27 1.25-1.9l.45-.67a100.7 100.7 0 018.65-11l.59-.63c.83-.9 1.67-1.79 2.54-2.65l1.7-1.67c.49-.47 1-.93 1.49-1.39.88-.81 1.77-1.61 2.68-2.39l.6-.49a99.69 99.69 0 0129.09-16.9c1.76-.66 3.54-1.26 5.31-1.82l.74-.23.83-.24c2.17-.63 4.36-1.2 6.59-1.69a100.49 100.49 0 0119.8-2.35H391.61q4.42.17 8.87.72h.29a98.51 98.51 0 0111.05 2.08 20 20 0 109.57-38.84 137.84 137.84 0 00-53.5-2.54h-.28c-1.16.18-2.33.37-3.5.58l-.92.16c-1 .18-1.95.37-2.92.57l-1.29.26-.91.19c-.8.17-1.59.36-2.38.55l-.46.11a138.77 138.77 0 00-54 26.3l-1 .77-.91.75a138.3 138.3 0 00-32.48 38.6l-.09.15c-.46.8-.9 1.6-1.34 2.41s-.84 1.56-1.25 2.34c0 .08-.08.17-.13.25a138.36 138.36 0 00-14.73 48.19c0 .4-.1.81-.14 1.21l-.12 1.19a138.54 138.54 0 005.4 53.94c.18.61.36 1.21.55 1.81 0 .1.06.2.1.3A139.34 139.34 0 00437 519a20 20 0 0011.69-25.78z"/><path fill="#67e8f9" d="M388.07 444.32a56.13 56.13 0 1156.12-56.13 56.19 56.19 0 01-56.12 56.13zm0-72.25a16.13 16.13 0 1016.12 16.12 16.14 16.14 0 00-16.12-16.12zM507.18 178.57a239.65 239.65 0 00-59-23.86l-.46-.12c-1.1-.28-2.2-.56-3.3-.82l-2.53-.59-1.19-.28a239.82 239.82 0 00-88.27-3.15c-1.08.16-2.15.33-3.22.51l-.79.12a240 240 0 00-53 15.16c-.29.13-.57.28-.86.42A238.87 238.87 0 00246.43 193a20 20 0 1023.5 32.37 200.31 200.31 0 0163.78-30.8 203.07 203.07 0 0121.44-4.79h.19l3.07-.49a204.33 204.33 0 0121.62-2 201 201 0 0152.12 4.7l.31.07c.92.2 1.83.42 2.74.64l2.24.55.85.22q5.23 1.35 10.41 3l.38.1a199.55 199.55 0 0138.31 16.78 20 20 0 1019.79-34.76z"/><path fill="#67e8f9" d="M599.9 454.55a20 20 0 00-26.15 10.8 202.21 202.21 0 01-10.2 21c0 .09-.11.17-.16.25A201.55 201.55 0 01524 536.48l-.5.46c-.67.61-1.36 1.21-2 1.81s-1.29 1.15-1.94 1.71l-.62.53a201.89 201.89 0 01-54.12 33.06q-4.49 1.85-9 3.47l-2 .71-2.09.72q-4.57 1.51-9.24 2.83c-90 25.26-183.16-15.16-228.15-92.42L214 489c-.61-1.06-1.21-2.13-1.81-3.21l-1-1.82c-.35-.64-.69-1.28-1-1.92-.52-1-1-2-1.54-3-.16-.31-.31-.62-.46-.93-.64-1.28-1.27-2.57-1.88-3.86-.05-.09-.09-.18-.13-.27q-1-2.18-2-4.38v-.05q-1-2.22-1.91-4.46c-.05-.14-.1-.27-.16-.4-.52-1.27-1-2.54-1.52-3.81l-.51-1.35c-.36-.95-.72-1.9-1.07-2.85-.48-1.33-.95-2.66-1.4-4l-.09-.25q-1.64-4.86-3-9.85a200.22 200.22 0 01-6.57-74.1 20 20 0 00-39.81-3.94 242.22 242.22 0 00-1.14 28.31c0 .76.05 1.52.07 2.28 0 1 0 2 .1 3a239.1 239.1 0 0012.33 66.6c.33 1 .67 1.91 1 2.86.24.68.47 1.37.71 2a239.63 239.63 0 0043.71 75.4c.21.23.4.47.61.71.68.79 1.38 1.57 2.07 2.35s1.42 1.61 2.15 2.41l.57.62a239.31 239.31 0 0066.49 50.85l.31.16c1 .51 2 1 3 1.53a239.85 239.85 0 0090.13 25h.54c1.58.11 3.17.21 4.75.29.9.05 1.8.08 2.71.12l2.27.08c2.52.08 5.05.14 7.58.14a239.75 239.75 0 0076.34-12.54c.68-.22 1.36-.46 2-.69l2.9-1a239.5 239.5 0 0075.58-43.75l.79-.67c.77-.66 1.53-1.34 2.29-2l2.47-2.2.53-.41a240.18 240.18 0 0059.66-85.31 20 20 0 00-10.76-26.14zM195.55 322.27a42.25 42.25 0 1140.66-53.67 42.27 42.27 0 01-40.66 53.67zm0-52.5a10.25 10.25 0 109.86 7.48 10.18 10.18 0 00-9.87-7.48zM65.63 447.39a42.35 42.35 0 1111.49-1.59 42.63 42.63 0 01-11.49 1.59zm.08-52.52a10.25 10.25 0 109.85 7.48 10.28 10.28 0 00-9.85-7.48zM416.59 378.3a20 20 0 01-14.14-34.14l201.44-201.44A20 20 0 01632.18 171L430.74 372.44a19.94 19.94 0 01-14.15 5.86z"/></svg>
+  <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
+    <div class="relative text-center">
+      <p class="text-base text-sonar-600 font-semibold tracking-wide uppercase">Coming soon</p>
+      <h2 class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        A better way to manage fees
+      </h2>
+      <p class="mt-4 max-w-3xl mx-auto text-xl text-gray-600">
+        Create and send invoices. Collect payments for student fees. Track account balances and have a reliable picture your school's receivables.
+      </p>
+      <p class="mt-4 text-3xl leading-8 font-extrabold tracking-tight text-sonar-600 sm:text-4xl">
+        Introducing Sonar FMS
+      </p>
+      <p class="mt-4 max-w-xl mx-auto text-xl text-gray-600">
+        Sonar FMS (fee management system) gives you the ability to manage all things related to fees simply and quickly.
+      </p>
+    </div>
+
+    <div class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+      <div class="relative">
+        <h3 class="text-2xl font-extrabold text-gray-900 tracking-tight sm:text-3xl">
+          Free yourself from the spreadsheet
+        </h3>
+        <p class="mt-3 text-lg text-gray-600">
+          Spreadsheets are a Swiss Army knife when it comes to quickly tracking data. The problem is that they can get misplaced and are difficult to persist with staffing changes.
+        </p>
+
+        <dl class="mt-10 space-y-10">
+          <div class="relative">
+            <dt>
+              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-sonar-500 text-white">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Generate invoices fast</p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-500">
+              Select students and create invoices en masse or create them individually for greater control. Upload a spreadsheet and get the best of both worlds.
+            </dd>
+          </div>
+
+          <div class="relative">
+            <dt>
+              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-sonar-500 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900">See the whole picture</p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-500">
+              View a summary of account balances. Get the bottom line of what's been paid and what is still owed. Parents can have full access to their own histories.
+            </dd>
+          </div>
+
+          <div class="relative">
+            <dt>
+              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-sonar-500 text-white">
+                <!-- Heroicon name: outline/globe-alt -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+              </div>
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Persistent record keeping</p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-500">
+              Persist student invoices for the entirety of a student's career. View past invoices and payments to feel confident about account balances.
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="mt-10 -mx-4 relative lg:mt-0" aria-hidden="true">
+        <svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784" height="404" fill="none" viewBox="0 0 784 404">
+          <defs>
+            <pattern id="ca9667ae-9f92-4be7-abcb-9e3d727f2941" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+            </pattern>
+          </defs>
+          <rect width="784" height="404" fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)" />
+        </svg>
+        <img class="relative mx-auto" width="490" src="https://tailwindui.com/img/features/feature-example-1.png" alt="">
+      </div>
+    </div>
+
+    <div class="relative mt-12 sm:mt-16 lg:mt-24">
+      <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
+        <div class="lg:col-start-2">
+          <h3 class="text-2xl font-extrabold text-gray-900 tracking-tight sm:text-3xl">
+            Flexibility when it counts
+          </h3>
+          <p class="mt-3 text-lg text-gray-500">
+            Guardians can always stay in-the-know when it comes to their account balances. They can make payments when it's convenient for them, saving you time in the day-to-day.
+          </p>
+
+          <dl class="mt-10 space-y-10">
+            <div class="relative">
+              <dt>
+                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-sonar-500 text-white">
+                  <!-- Heroicon name: outline/annotation -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                  </svg>
+                </div>
+                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">PowerSchool integrated</p>
+              </dt>
+              <dd class="mt-2 ml-16 text-base text-gray-500">
+                Pull student and guardian data from PowerSchool so you can worry about the numbers and not enrollment. Leave data wrangling to us. Need to add students ad-hoc? That's ok, too.
+              </dd>
+            </div>
+
+            <div class="relative">
+              <dt>
+                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-sonar-500 text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">District reporting</p>
+              </dt>
+              <dd class="mt-2 ml-16 text-base text-gray-500">
+                Have the ability for district administrators to see numbers across all the district's schools. Let the admins generate the reports they need without lifing a finger.
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1">
+          <svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784" height="404" fill="none" viewBox="0 0 784 404" aria-hidden="true">
+            <defs>
+              <pattern id="e80155a9-dfde-425a-b5ea-1f6fadd20131" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+              </pattern>
+            </defs>
+            <rect width="784" height="404" fill="url(#e80155a9-dfde-425a-b5ea-1f6fadd20131)" />
+          </svg>
+          <img class="relative mx-auto" width="490" src="https://tailwindui.com/img/features/feature-example-2.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-gradient-to-br from-orange-300 to-sonar-400 py-16 sm:py-24">
+  <div class="relative sm:py-16">
+    <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="relative rounded-2xl px-6 py-10 bg-sonar-600 overflow-hidden shadow-xl sm:px-12 sm:py-20">
+        <div aria-hidden="true" class="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0">
+          <svg class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1463 360">
+            <path class="text-sonar-500 text-opacity-40" fill="currentColor" d="M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z" />
+            <path class="text-sonar-700 text-opacity-40" fill="currentColor" d="M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z" />
+          </svg>
+        </div>
+        <div class="relative">
+          <div class="sm:text-center">
+            <h2 class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">
+              Get notified when Sonar FMS is available.
+            </h2>
+            <p class="mt-6 mx-auto max-w-2xl text-lg text-sonar-200">
+              Stay informed of all the latest news and resources from Archboard.
+            </p>
+          </div>
+          <form action="https://mail.archboard.io/subscribe/d55c7218-9463-49fc-bc41-7849b75e70b6" method="post" class="mt-12 sm:mx-auto sm:max-w-lg sm:flex">
+            <div class="min-w-0 flex-1">
+              <label for="cta-email" class="sr-only">Email address</label>
+              <input id="cta-email" type="email" name="email" class="block w-full border border-transparent rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sonar-600" placeholder="Enter your email">
+            </div>
+            <div class="mt-4 sm:mt-0 sm:ml-3">
+              <button type="submit" class="block w-full rounded-md border border-transparent px-5 py-3 bg-sonar-500 text-base font-medium text-white shadow hover:bg-sonar-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sonar-600 sm:px-10">Notify me</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,5 +5,7 @@
   "url": "https://archboard.io",
   "locale": "en",
   "author": "Anonymous",
-  "header_bg_class": "bg-blue-600 hover:bg-blue-700"
+  "header_bg_class": "bg-white",
+  "color_logo": true,
+  "light_nav": true
 }
