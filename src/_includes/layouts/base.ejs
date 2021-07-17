@@ -59,7 +59,7 @@
 
           <!-- menu button -->
           <div class="-mr-2 -my-2 md:hidden">
-            <button x-on:click.prevent="showMobileMenu = !showMobileMenu" type="button" class="<%= site.header_bg_class %> rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+            <button x-on:click.prevent="showMobileMenu = !showMobileMenu" type="button" class="<%= site.header_bg_class %> rounded-md p-2 inline-flex items-center justify-center <%= site.color_logo ? 'text-gray-400 hover:text-gray-500' : 'text-gray-100 hover:text-gray-200' %> focus:outline-none">
               <span class="sr-only">Open menu</span>
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -161,14 +161,14 @@
         x-transition:leave-end="opacity-0 scale-95"
         class="absolute top-0 inset-x-0 z-10 p-2 transition transform origin-top-right md:hidden"
       >
-        <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 <%= site.header_bg_class %> divide-y-2 divide-gray-50">
+        <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
           <div class="pt-5 pb-6 px-5">
             <div class="flex items-center justify-between">
               <div>
                 <img class="h-8 w-auto" src="/assets/images/square-blue.svg" alt="Archboard">
               </div>
               <div class="-mr-2">
-                <button x-on:click.prevent="showMobileMenu = false" type="button" class="<%= site.header_bg_class %> rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                <button x-on:click.prevent="showMobileMenu = false" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
                   <span class="sr-only">Close menu</span>
                   <!-- Heroicon name: x -->
                   <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -185,10 +185,25 @@
                     Tidal PTC
                   </span>
                 </a>
+
+                <a href="/products/sonar-fms/" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                  <svg class="flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 776.39 776.39"><circle fill="#164e63" cx="388.19" cy="388.19" r="388.19"/><path fill="#67e8f9" d="M388.07 730.57a342.48 342.48 0 01-323.84-231 20 20 0 1137.83-13 302.42 302.42 0 00588.38-98.38c0-6-.17-12-.52-18a20 20 0 0139.93-2.35c.39 6.73.59 13.58.59 20.34a342.12 342.12 0 01-342.37 342.39zM74.74 332.11a20 20 0 01-19.45-24.71 342.49 342.49 0 01525.08-202.51A20 20 0 01557.88 138 302.49 302.49 0 0094.17 316.81a20 20 0 01-19.43 15.3z"/><path fill="#67e8f9" d="M448.69 493.22A20 20 0 00423 481.49a100.84 100.84 0 01-13.25 3.94h-.22a99.73 99.73 0 01-31.07 1.9l-.82-.08-.91-.1a100.1 100.1 0 01-29.91-8.36c-1.5-.69-3-1.4-4.44-2.16l-.1-.05c-1.3-.67-2.57-1.37-3.83-2.09l-1.19-.71c-.8-.47-1.59-.95-2.37-1.45l-.41-.25c-.64-.41-1.27-.83-1.9-1.25l-.67-.46a100.82 100.82 0 01-11-8.65l-.62-.57c-.9-.84-1.79-1.69-2.66-2.56q-.84-.83-1.65-1.68c-.48-.5-.95-1-1.41-1.51-.81-.88-1.6-1.77-2.38-2.68l-.5-.6a99.52 99.52 0 01-16.89-29.08q-.87-2.32-1.62-4.66l-.06-.2c-.19-.6-.37-1.2-.55-1.8s-.37-1.26-.54-1.89v-.12c-.43-1.59-.83-3.19-1.18-4.8a100 100 0 01-1.91-31.06c0-.28.05-.56.08-.84s.07-.59.11-.88a99.7 99.7 0 018.36-29.94c.68-1.5 1.4-3 2.15-4.44v-.08c.68-1.3 1.39-2.59 2.11-3.85.23-.4.46-.79.7-1.18.47-.8 1-1.59 1.45-2.38.09-.13.17-.27.26-.41.41-.64.82-1.27 1.25-1.9l.45-.67a100.7 100.7 0 018.65-11l.59-.63c.83-.9 1.67-1.79 2.54-2.65l1.7-1.67c.49-.47 1-.93 1.49-1.39.88-.81 1.77-1.61 2.68-2.39l.6-.49a99.69 99.69 0 0129.09-16.9c1.76-.66 3.54-1.26 5.31-1.82l.74-.23.83-.24c2.17-.63 4.36-1.2 6.59-1.69a100.49 100.49 0 0119.8-2.35H391.61q4.42.17 8.87.72h.29a98.51 98.51 0 0111.05 2.08 20 20 0 109.57-38.84 137.84 137.84 0 00-53.5-2.54h-.28c-1.16.18-2.33.37-3.5.58l-.92.16c-1 .18-1.95.37-2.92.57l-1.29.26-.91.19c-.8.17-1.59.36-2.38.55l-.46.11a138.77 138.77 0 00-54 26.3l-1 .77-.91.75a138.3 138.3 0 00-32.48 38.6l-.09.15c-.46.8-.9 1.6-1.34 2.41s-.84 1.56-1.25 2.34c0 .08-.08.17-.13.25a138.36 138.36 0 00-14.73 48.19c0 .4-.1.81-.14 1.21l-.12 1.19a138.54 138.54 0 005.4 53.94c.18.61.36 1.21.55 1.81 0 .1.06.2.1.3A139.34 139.34 0 00437 519a20 20 0 0011.69-25.78z"/><path fill="#67e8f9" d="M388.07 444.32a56.13 56.13 0 1156.12-56.13 56.19 56.19 0 01-56.12 56.13zm0-72.25a16.13 16.13 0 1016.12 16.12 16.14 16.14 0 00-16.12-16.12zM507.18 178.57a239.65 239.65 0 00-59-23.86l-.46-.12c-1.1-.28-2.2-.56-3.3-.82l-2.53-.59-1.19-.28a239.82 239.82 0 00-88.27-3.15c-1.08.16-2.15.33-3.22.51l-.79.12a240 240 0 00-53 15.16c-.29.13-.57.28-.86.42A238.87 238.87 0 00246.43 193a20 20 0 1023.5 32.37 200.31 200.31 0 0163.78-30.8 203.07 203.07 0 0121.44-4.79h.19l3.07-.49a204.33 204.33 0 0121.62-2 201 201 0 0152.12 4.7l.31.07c.92.2 1.83.42 2.74.64l2.24.55.85.22q5.23 1.35 10.41 3l.38.1a199.55 199.55 0 0138.31 16.78 20 20 0 1019.79-34.76z"/><path fill="#67e8f9" d="M599.9 454.55a20 20 0 00-26.15 10.8 202.21 202.21 0 01-10.2 21c0 .09-.11.17-.16.25A201.55 201.55 0 01524 536.48l-.5.46c-.67.61-1.36 1.21-2 1.81s-1.29 1.15-1.94 1.71l-.62.53a201.89 201.89 0 01-54.12 33.06q-4.49 1.85-9 3.47l-2 .71-2.09.72q-4.57 1.51-9.24 2.83c-90 25.26-183.16-15.16-228.15-92.42L214 489c-.61-1.06-1.21-2.13-1.81-3.21l-1-1.82c-.35-.64-.69-1.28-1-1.92-.52-1-1-2-1.54-3-.16-.31-.31-.62-.46-.93-.64-1.28-1.27-2.57-1.88-3.86-.05-.09-.09-.18-.13-.27q-1-2.18-2-4.38v-.05q-1-2.22-1.91-4.46c-.05-.14-.1-.27-.16-.4-.52-1.27-1-2.54-1.52-3.81l-.51-1.35c-.36-.95-.72-1.9-1.07-2.85-.48-1.33-.95-2.66-1.4-4l-.09-.25q-1.64-4.86-3-9.85a200.22 200.22 0 01-6.57-74.1 20 20 0 00-39.81-3.94 242.22 242.22 0 00-1.14 28.31c0 .76.05 1.52.07 2.28 0 1 0 2 .1 3a239.1 239.1 0 0012.33 66.6c.33 1 .67 1.91 1 2.86.24.68.47 1.37.71 2a239.63 239.63 0 0043.71 75.4c.21.23.4.47.61.71.68.79 1.38 1.57 2.07 2.35s1.42 1.61 2.15 2.41l.57.62a239.31 239.31 0 0066.49 50.85l.31.16c1 .51 2 1 3 1.53a239.85 239.85 0 0090.13 25h.54c1.58.11 3.17.21 4.75.29.9.05 1.8.08 2.71.12l2.27.08c2.52.08 5.05.14 7.58.14a239.75 239.75 0 0076.34-12.54c.68-.22 1.36-.46 2-.69l2.9-1a239.5 239.5 0 0075.58-43.75l.79-.67c.77-.66 1.53-1.34 2.29-2l2.47-2.2.53-.41a240.18 240.18 0 0059.66-85.31 20 20 0 00-10.76-26.14zM195.55 322.27a42.25 42.25 0 1140.66-53.67 42.27 42.27 0 01-40.66 53.67zm0-52.5a10.25 10.25 0 109.86 7.48 10.18 10.18 0 00-9.87-7.48zM65.63 447.39a42.35 42.35 0 1111.49-1.59 42.63 42.63 0 01-11.49 1.59zm.08-52.52a10.25 10.25 0 109.85 7.48 10.28 10.28 0 00-9.85-7.48zM416.59 378.3a20 20 0 01-14.14-34.14l201.44-201.44A20 20 0 01632.18 171L430.74 372.44a19.94 19.94 0 01-14.15 5.86z"/></svg>
+                  <span class="ml-3 text-base font-medium text-gray-900">
+                    Sonar FMS
+                    <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+                      Coming soon
+                    </span>
+                  </span>
+                </a>
               </nav>
             </div>
           </div>
           <div class="py-6 px-5 space-y-6">
+            <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+              <a href="/products/" class="text-base font-medium text-gray-900 hover:text-gray-700">
+                Products
+              </a>
+            </div>
             <div class="grid grid-cols-2 gap-y-4 gap-x-8">
               <a href="/about/" class="text-base font-medium text-gray-900 hover:text-gray-700">
                 About
