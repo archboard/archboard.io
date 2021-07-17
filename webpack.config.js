@@ -2,7 +2,6 @@ const glob = require('glob')
 const path = require('path')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 
 const entries = glob.sync(path.resolve(__dirname, 'src/assets/images/*.{png,gif,jpg,jpeg,svg}'))
@@ -21,11 +20,6 @@ module.exports = {
     new webpack.HashedModuleIdsPlugin(),
     new FixStyleOnlyEntriesPlugin({
       extensions: ['less', 'scss', 'css', 'styl', 'sass', 'png', 'gif', 'jpg', 'jpeg'], // Empty js should also not be generated with image
-    }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'webpack.html'),
-      filename: path.resolve(__dirname, 'src/_includes/layouts/webpack.ejs'),
-      inject: false,
     }),
   ],
   module: {
