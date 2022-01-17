@@ -11,7 +11,10 @@ layout: layouts/base.ejs
           <h2 class="font-bold text-xl">What's on your mind?</h2>
         </div>
 
-        <form name="contact" action="/thanks" method="post" netlify>
+        <form name="contact" action="/thanks" method="post" netlify netlify-honeypot="name">
+          <div class="hidden">
+            <input type="text" name="name">
+          </div>
           <div>
             <label for="purpose" class="text-gray-600">Purpose</label>
             <select id="purpose" name="purpose" type="email" class="block mt-2 w-full" required autofocus>
