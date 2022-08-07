@@ -42,8 +42,8 @@ layout: layouts/base.ejs
 
 <script>
 function handleSubmit(e) {
-  console.log(document.getElementById('comment').value)
-  if (!document.getElementById('comment').value.includes(' ')) {
+  const comment = document.getElementById('comment').value
+  if (!comment.includes(' ') || comment.toLowerCase().include('robot')) {
     e.preventDefault()
     window.location.reload()
   }
