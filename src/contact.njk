@@ -30,6 +30,10 @@ layout: layouts/base.ejs
             <textarea name="comment" id="comment" class="block mt-2 w-full" rows="4" required></textarea>
           </div>
           <div class="mt-6">
+            <label for="number" class="text-gray-600">5 + 7 = ?</label>
+            <input id="number" name="number" type="number" class="block mt-2 w-full" required>
+          </div>
+          <div class="mt-6">
             <button type="submit" class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
               <span>Send it</span> <svg xmlns="http://www.w3.org/2000/svg" class="inline-flex ml-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
             </button>
@@ -42,8 +46,7 @@ layout: layouts/base.ejs
 
 <script>
 function handleSubmit(e) {
-  const comment = document.getElementById('comment').value
-  if (!comment.includes(' ') || comment.toLowerCase().include('robot')) {
+  if (document.getElementById('number').value !== '12') {
     e.preventDefault()
     window.location.reload()
   }
