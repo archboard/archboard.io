@@ -1,0 +1,29 @@
+{
+  "name": "archboard.io",
+  "version": "1.0.0",
+  "description": "The public site for Archboard.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/archboard/archboard.io.git"
+  },
+  "author": "Grant Holle <grant@archboard.io>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/archboard/archboard.io/issues"
+  },
+  "homepage": "https://github.com/archboard/archboard.io#readme",
+  "devDependencies": {
+    "astro": "^2.4.0",
+    "tailwindcss": "^3.3.2"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^3.1.2"
+  }
+}
