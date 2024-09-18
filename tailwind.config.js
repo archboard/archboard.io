@@ -2,6 +2,16 @@ const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 const brandColors = {
+  brand: {
+    purple: '#7642EB',
+    gold: '#FFBB11',
+    teal: '#2EAFA2',
+    blue: '#1E7ACF',
+    pink: '#FF3355',
+    orange: '#F56A02',
+    black: '#060606',
+    white: '#FFFFFF',
+  },
   pink: {
     50: "#FFF5F7",
     100: "#FFE5EA",
