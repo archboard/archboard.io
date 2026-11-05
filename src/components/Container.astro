@@ -1,0 +1,13 @@
+---
+/**
+ * The page's one content width. Pass `as="section"` and so on when the container is
+ * also the landmark, so sections don't need an extra wrapper div.
+ */
+type Props = astroHTML.JSX.HTMLAttributes & { as?: string }
+
+const { as: Tag = 'div', class: className, ...rest } = Astro.props
+---
+
+<Tag class:list={['mx-auto max-w-340 px-6', className]} {...rest}>
+  <slot />
+</Tag>

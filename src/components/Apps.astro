@@ -1,0 +1,55 @@
+---
+import Container from './Container.astro'
+import LavaPanel from './LavaPanel.astro'
+import Logo from './Logo.astro'
+import { apps, links, href } from '../data/apps'
+---
+
+<Container as="section" id="apps" aria-labelledby="apps-title" class="flex flex-col gap-14 pt-20 pb-30">
+  <div class="flex flex-wrap items-end justify-between gap-6">
+    <div class="flex flex-col gap-5">
+      <span class="eyebrow">02 / THE APPS</span>
+      <h2 id="apps-title" class="headline max-w-[13ch] text-[clamp(48px,7vw,112px)]">Built in the open. Used in real schools.</h2>
+      <p class="max-w-[44ch] text-xl/relaxed text-gray-300">Already on PowerSchool? Most of our apps work with it.</p>
+    </div>
+    <a href={href(links.github)} class="inline-flex min-h-11 items-center text-[17px] font-semibold text-primary-500 no-underline hover:text-amber-400">See all apps →</a>
+  </div>
+
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
+    {
+      apps.map((app) => (
+        <article class="flex flex-col overflow-hidden rounded-3xl border border-gray-800 bg-gray-950">
+          <LavaPanel colors={app.lava} class="flex h-75 items-center justify-center" >
+            <div class="absolute inset-0 -z-20" style={`background:${app.background}`} />
+            <Logo gradient={app.mark} class="size-35 drop-shadow-[0_18px_36px_rgba(0,0,0,.45)]" />
+            {app.flagship && (
+              <span class="absolute top-4 left-4 inline-flex min-h-7 items-center rounded-full bg-black px-3 text-xs font-semibold tracking-[0.04em]">FLAGSHIP</span>
+            )}
+          </LavaPanel>
+          <div class="flex grow flex-col gap-3 p-7">
+            <h3 class="font-display text-4xl leading-[1.05]">{app.name}</h3>
+            <p class="grow text-base/relaxed text-gray-400">{app.description}</p>
+            <div class="flex flex-wrap gap-2 font-mono text-xs text-gray-300">
+              {app.powerschool && <span class="rounded-full px-2.5 py-1 font-semibold text-black" style={`background:${app.accent}`}>Works with PowerSchool</span>}
+              {app.tags.map((tag) => <span class="rounded-full border border-gray-700 px-2.5 py-1">{tag}</span>)}
+            </div>
+            <a href={href(app.url)} class="mt-2 inline-flex min-h-11 items-center text-[15px] font-semibold no-underline hover:underline" style={`color:${app.accent}`}>
+              Learn more →
+            </a>
+          </div>
+        </article>
+      ))
+    }
+
+    <article class="flex min-h-105 flex-col justify-between gap-8 rounded-3xl border-2 border-dashed border-gray-700 p-7">
+      <div aria-hidden="true" class="flex size-24 -rotate-8 items-center justify-center rounded-[28px] border-2 border-dashed border-violet-500">
+        <svg class="size-11" viewBox="0 0 24 24" fill="none" stroke="#a684ff" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h3 class="font-display text-4xl leading-[1.05]">Your idea <em class="text-violet-400">here.</em></h3>
+        <p class="text-base/relaxed text-gray-400">[What app does your school wish existed? Pitch it — the best ones get built.]</p>
+        <a href="#contribute" class="inline-flex min-h-11 items-center text-[15px] font-semibold text-violet-400 no-underline hover:underline">Pitch an app →</a>
+      </div>
+    </article>
+  </div>
+</Container>

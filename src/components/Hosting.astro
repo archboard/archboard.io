@@ -1,0 +1,78 @@
+---
+import Container from './Container.astro'
+import GrainGlow from './GrainGlow.astro'
+import Logo from './Logo.astro'
+import { apps, links, href } from '../data/apps'
+
+const hosted = apps.filter((app) => app.hosting)
+const perks = ['Automated setup', 'Updates & backups', 'Custom domains', 'Human support', 'PO-friendly invoicing', 'No multi-year lock-in']
+---
+
+<Container as="section" id="hosting" aria-labelledby="hosting-title" class="flex flex-col gap-14 pt-10 pb-35">
+  <div class="flex flex-col gap-5">
+    <span class="eyebrow">03 / HOSTING</span>
+    <h2 id="hosting-title" class="headline max-w-[15ch] text-[clamp(48px,7vw,112px)]">
+      Don't know how to host it yourself? <em class="text-primary-500">We do.</em>
+    </h2>
+    <p class="max-w-[62ch] text-lg/relaxed text-gray-400">
+      I believe wholeheartedely in Archboard's vision. My conviction is strong that many more out there share my pain and can get on board with my vision. Dreams don't pay bills, so one way to support Archboard is to use our hosting services. It's insanely affordable and will always have transparent pricing.
+    </p>
+  </div>
+
+  <div class="flex flex-wrap items-stretch gap-6">
+    <article class="flex min-w-0 flex-[1_1_380px] flex-col gap-5 rounded-3xl border border-gray-800 bg-gray-950 p-8">
+      <span class="font-mono text-[13px] tracking-[0.06em] text-gray-400">OPTION A · HAVE AN IT TEAM?</span>
+      <h3 class="font-display text-[44px] leading-none">Run it yourself.</h3>
+      <div aria-label="Example install command" class="flex flex-col gap-1.5 rounded-2xl border border-gray-800 bg-black px-5 py-4.5 font-mono text-[15px] text-gray-300">
+        <span><span class="text-primary-500">$</span> docker compose up -d</span>
+        <span class="text-gray-500"># hand this to your IT person</span>
+      </div>
+      <div class="flex items-baseline gap-2.5">
+        <span class="font-display text-[56px] leading-none">$0</span>
+        <span class="text-[15px] text-gray-400">forever. your servers, your rules.</span>
+      </div>
+      <a href={href(links.selfHosting)} class="mt-auto inline-flex min-h-11 items-center text-[15px] font-semibold text-primary-500 no-underline hover:text-amber-400" target="_blank">Setup guide for IT →</a>
+    </article>
+
+    <article class="relative isolate flex min-w-0 flex-[1.3_1_460px] flex-col gap-5 overflow-hidden rounded-3xl bg-primary-500 p-8 text-black">
+      <GrainGlow
+        glows={[
+          { color: '#ffb900', size: 440, at: 'right:-140px;top:-200px', blur: 72, opacity: 0.95 },
+          { color: '#ff2056', size: 380, at: 'left:-160px;bottom:-220px', blur: 80, opacity: 0.7 },
+        ]}
+      />
+      <span class="relative font-mono text-[13px] tracking-[0.06em]">OPTION B · WE DO IT</span>
+      <h3 class="relative font-display text-[44px] leading-none">Hand us the keys.</h3>
+      <ul class="relative grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-x-6 gap-y-2.5 text-base font-medium">
+        {
+          perks.map((perk) => (
+            <li class="flex items-center gap-2.5">
+              <svg class="size-4.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7" /></svg>
+              {perk}
+            </li>
+          ))
+        }
+      </ul>
+      {
+        hosted.map((app) => (
+          <div class="relative mt-2 flex flex-wrap items-center justify-between gap-4 rounded-[18px] bg-black px-5 py-4.5 text-white">
+            <div class="flex items-center gap-3.5">
+              <div aria-hidden="true" class="flex size-12 items-center justify-center rounded-[14px]" style={`background:${app.background}`}>
+                <Logo gradient={app.mark} class="size-6.5" />
+              </div>
+              <div class="flex flex-col gap-0.5">
+                <span class="text-[17px] font-semibold">{app.hosting!.label}</span>
+                <span class="text-sm text-gray-400">{app.hosting!.price}</span>
+              </div>
+            </div>
+            <a href={href(app.hosting!.url)} class="btn text-black" style={`background:${app.accent}`}>See pricing →</a>
+          </div>
+        ))
+      }
+      <div class="relative flex flex-wrap items-center gap-x-5 gap-y-3">
+        <a href={href(links.quote)} class="btn min-h-13 bg-black text-base text-white hover:bg-gray-900">Get a quote</a>
+        <span class="text-sm font-medium">More apps coming. Same deal.</span>
+      </div>
+    </article>
+  </div>
+</Container>

@@ -1,0 +1,20 @@
+---
+const words = ['Built with everyone', 'Works with PowerSchool', 'No seats', 'No contracts', 'Open source', 'No nonsense', 'No hassle']
+// Two copies so the -50% loop is seamless.
+const loop = [...words, ...words]
+---
+
+<div aria-hidden="true" class="overflow-hidden border-b border-gray-800 py-9">
+  <div class="flex w-max animate-marquee">
+    {
+      loop.map((word) => (
+        <span class="inline-flex items-center gap-9 pr-9 font-display text-6xl leading-none whitespace-nowrap">
+          {word}
+          <svg class="size-8.5" viewBox="0 0 24 24" fill="none" stroke="#ff6900" stroke-width="3" stroke-linecap="round">
+            <path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1" />
+          </svg>
+        </span>
+      ))
+    }
+  </div>
+</div>

@@ -1,0 +1,128 @@
+---
+import Container from './Container.astro'
+import { links, href } from '../data/apps'
+
+const steps = [
+  {
+    title: 'Bring an idea.',
+    body: '[Something that bugs you, or one from our wishlist. Describe it like you would to a coworker.]',
+    color: 'border-primary-500 text-primary-500',
+  },
+  {
+    title: 'Let your AI do the techy bits.',
+    body: '[Paste our starter prompt into your AI tool. It reads the app, asks you questions, builds the change, and shows you how it looks. You steer: “yes”, “no”, “more like this”.]',
+    color: 'border-amber-400 text-amber-400',
+  },
+  {
+    title: "Send it. We'll ship it.",
+    body: '[Your AI helps you submit it on GitHub. A free account is all you need. We review it, help polish it, and it lands in every school using the app.]',
+    color: 'border-rose-500 text-rose-400',
+  },
+]
+
+const trail = [
+  { label: 'Your idea', class: 'bg-primary-500 text-black' },
+  { label: 'Your AI builds it', class: 'bg-amber-400 text-black' },
+  { label: 'You submit it on GitHub', class: 'border border-gray-700 text-gray-300' },
+  { label: 'We review it & ship it', class: 'border border-gray-700 text-gray-300' },
+]
+
+const starterPrompt =
+  "[I'm not a developer, but I want to improve Tidal PTC, a free app for schools. Read its contributor guide at [LINK], explain things simply, build my idea with me, and walk me through submitting it as a pull request on GitHub. My idea: …]"
+---
+
+<section id="contribute" aria-labelledby="contribute-title" class="border-y border-gray-800 bg-gray-950">
+  <Container class="flex flex-col gap-18 py-35">
+    <div class="flex flex-wrap items-end justify-between gap-x-16 gap-y-6">
+      <div class="flex flex-col gap-5">
+        <span class="eyebrow">04 / GET INVOLVED</span>
+        <h2 id="contribute-title" class="headline max-w-[12ch] text-[clamp(48px,8vw,132px)] leading-[0.92]">
+          This only works <em class="text-primary-500">with you.</em>
+        </h2>
+      </div>
+      <p class="max-w-[44ch] text-xl/relaxed text-gray-300">
+        You don't need to code. If you have an idea and an AI tool — ChatGPT, Claude, whatever you already use —
+        <em class="font-display text-2xl text-white">you can build it.</em>
+      </p>
+    </div>
+
+    <ol class="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-10">
+      {
+        steps.map((step, i) => (
+          <li class={`flex flex-col gap-3.5 border-t-2 pt-6 ${step.color}`}>
+            <span class="font-display text-[88px] leading-[0.8]">{i + 1}</span>
+            <h3 class="text-[26px] font-bold tracking-tight text-white">{step.title}</h3>
+            <p class="text-base/relaxed text-gray-400">{step.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="flex flex-wrap items-stretch gap-8">
+      <figure aria-label="Example: a teacher building an idea with their own AI tool" class="relative isolate flex min-w-0 flex-[999_1_560px] flex-col gap-4.5 overflow-hidden rounded-3xl border border-gray-800 bg-black p-7">
+        <div aria-hidden="true" class="absolute -top-60 -right-55 -z-10 size-105 rounded-full bg-primary-500 opacity-35 blur-[110px]"></div>
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <span class="text-[15px] font-semibold">Your AI tool</span>
+          <span class="font-mono text-xs text-gray-400">[example conversation]</span>
+        </div>
+        <div class="max-w-[78%] self-end rounded-[20px_20px_6px_20px] bg-gray-800 px-4.5 py-3.5 text-base/normal">
+          [(starter prompt) + Parents keep forgetting their conference time. Could Tidal PTC text them the day before?]
+        </div>
+        <div class="flex max-w-[86%] items-start gap-3">
+          <div aria-hidden="true" class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-primary-500">
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z" /><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z" /></svg>
+          </div>
+          <div class="rounded-[20px_20px_20px_6px] border border-gray-800 bg-gray-900 px-4.5 py-3.5 text-base/normal text-gray-200">
+            [Love it. I've read how Tidal PTC works, so I'll handle the code. Two quick questions: should teachers be able to turn it off? Is this wording right? ↓]
+          </div>
+        </div>
+        <div class="ml-12 flex max-w-90 -rotate-[1.5deg] flex-col gap-2 rounded-2xl bg-gray-50 px-4.5 py-4 text-gray-900 shadow-[0_20px_40px_rgba(0,0,0,.5)]">
+          <span class="font-mono text-[11px] tracking-[0.08em] text-gray-600">DRAFT · TEXT REMINDER</span>
+          <span class="text-[15px]/normal">[Hi! Reminder: your conference with Ms. Rivera is tomorrow at 4:15 PM, Room 12.]</span>
+        </div>
+        <div class="mt-1.5 flex flex-wrap items-center gap-2 text-[13px] font-semibold">
+          {
+            trail.map((step, i) => (
+              <>
+                {i > 0 && <span aria-hidden="true" class="text-gray-500">→</span>}
+                <span class={`rounded-full px-3 py-1.5 ${step.class}`}>{step.label}</span>
+              </>
+            ))
+          }
+        </div>
+      </figure>
+
+      <div class="flex min-w-0 flex-[1_1_340px] flex-col gap-4.5 rounded-3xl border border-gray-800 bg-black p-7">
+        <span class="font-mono text-[13px] tracking-[0.06em] text-primary-500">START HERE</span>
+        <h3 class="font-display text-4xl leading-[1.05]">The starter prompt</h3>
+        <p class="text-[15px]/relaxed text-gray-400">Copy it, paste it into your AI tool, add your idea. That's it.</p>
+        <div id="starter-prompt" class="rounded-2xl border border-dashed border-gray-600 bg-gray-900 p-4.5 font-mono text-[13px]/relaxed text-gray-200">{starterPrompt}</div>
+        <button type="button" data-copy="#starter-prompt" class="btn-primary min-h-13 text-base">
+          <svg class="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15V5a2 2 0 0 1 2-2h10" /></svg>
+          <span data-copy-label>Copy starter prompt</span>
+        </button>
+        <div class="flex flex-wrap justify-center gap-x-5 gap-y-1">
+          <a href={href(links.wishlist)} class="inline-flex min-h-9 items-center text-sm text-primary-500 no-underline hover:text-amber-400">Browse the idea wishlist</a>
+          <a href={href(links.newIssue)} class="inline-flex min-h-9 items-center text-sm text-gray-400 no-underline hover:text-white">Rather just describe it? Open an issue</a>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((button) => {
+    const label = button.querySelector('[data-copy-label]')!
+    const original = label.textContent
+    button.addEventListener('click', async () => {
+      const text = document.querySelector(button.dataset.copy!)?.textContent?.trim() ?? ''
+      try {
+        await navigator.clipboard.writeText(text)
+        label.textContent = 'Copied!'
+      } catch {
+        label.textContent = 'Select the text to copy'
+      }
+      setTimeout(() => (label.textContent = original), 2000)
+    })
+  })
+</script>

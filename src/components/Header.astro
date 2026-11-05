@@ -1,0 +1,28 @@
+---
+import Container from './Container.astro'
+import Logo from './Logo.astro'
+
+const nav = [
+  { label: 'Apps', href: '#apps' },
+  { label: 'Hosting', href: '#hosting' },
+  { label: 'Get involved', href: '#contribute' },
+  { label: "Hi, I'm Grant", href: '#grant' },
+]
+---
+
+<Container as="header" class="flex min-h-19 flex-wrap items-center gap-x-6 gap-y-2 py-2">
+  <a href="/" class="flex min-h-11 items-center gap-2.5 text-white no-underline">
+    <Logo class="size-7.5" />
+    <span class="text-[17px] font-bold tracking-tight">Archboard</span>
+  </a>
+  <nav aria-label="Main" class="flex grow flex-wrap gap-1">
+    {
+      nav.map((item) => (
+        <a href={item.href} class="inline-flex min-h-11 items-center px-3 text-[15px] font-medium text-gray-300 no-underline hover:text-white">
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+  <a href="#contribute" class="btn-outline">Share an idea</a>
+</Container>

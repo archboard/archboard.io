@@ -1,0 +1,20 @@
+---
+import Container from './Container.astro'
+import { links, href } from '../data/apps'
+
+const nav = [
+  { label: 'Apps', href: '#apps' },
+  { label: 'Source code', href: href(links.github) },
+  { label: 'Billing sign in', href: links.billing },
+]
+---
+
+<Container as="footer" class="flex flex-col gap-10 overflow-hidden pt-12">
+  <div class="relative z-10 flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
+    <nav aria-label="Footer" class="flex flex-wrap gap-x-6 gap-y-1">
+      {nav.map((item) => <a href={item.href} class="inline-flex min-h-11 items-center text-[15px] text-gray-300 no-underline hover:text-white">{item.label}</a>)}
+    </nav>
+    <span class="text-sm text-gray-400">© {new Date().getFullYear()} Archboard, LLC · *seriously, it's free.</span>
+  </div>
+  <div aria-hidden="true" class="relative z-0 text-center font-display text-[clamp(96px,21vw,300px)] leading-[0.72] tracking-[-0.04em] whitespace-nowrap text-gray-900">archboard</div>
+</Container>

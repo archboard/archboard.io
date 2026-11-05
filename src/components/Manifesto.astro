@@ -1,0 +1,56 @@
+---
+import Container from './Container.astro'
+const struck = ['Per-seat pricing', 'Multi-year contracts', '“Contact sales for pricing”', 'Implementation fees', 'Features held for ransom']
+
+const vendor = [
+  ['Licence', '$[X,XXX]'],
+  ['Per school', '$[XXX]'],
+  ['Setup fee', '$[X,XXX]'],
+  ['Support tier', '$[XXX]'],
+  ['Yearly bump', '+[X]%'],
+]
+const ours = [
+  ['The app', '$0'],
+  ['Source code', '$0'],
+  ['Updates', '$0'],
+  ['Your data', 'yours'],
+]
+---
+
+<Container as="section" id="manifesto" aria-labelledby="manifesto-title" class="flex flex-col gap-18 pt-35 pb-30">
+  <div class="flex flex-col gap-5">
+    <span class="eyebrow">01 / THE STATUS QUO</span>
+    <h2 id="manifesto-title" class="headline max-w-[14ch] text-[clamp(48px,7vw,112px)]">
+      Software got <em class="text-primary-500">weird.</em>
+    </h2>
+  </div>
+
+  <div class="flex flex-wrap items-center gap-16">
+    <ul class="flex min-w-0 flex-[1_1_460px] flex-col gap-1.5 font-display text-[clamp(32px,4vw,52px)] leading-[1.2]">
+      {struck.map((item) => <li class="strike text-gray-400">{item}</li>)}
+      <li class="mt-3 text-white">Apps that are just… <em class="text-amber-400">good.</em></li>
+    </ul>
+
+    <div class="flex min-w-0 flex-[1_1_520px] flex-wrap items-start justify-center gap-7 py-6 font-mono text-[13px]">
+      <figure aria-label="Illustration: a typical vendor bill" class="flex w-65 -rotate-4 flex-col gap-2.5 rounded-md bg-gray-50 px-5.5 pt-6 pb-7 text-gray-900 shadow-[0_30px_60px_rgba(0,0,0,.5)]">
+        <div class="text-center tracking-[0.1em]">TYPICAL VENDOR</div>
+        <div class="border-t border-dashed border-gray-500"></div>
+        {vendor.map(([k, v]) => <div class="flex justify-between"><span>{k}</span><span>{v}</span></div>)}
+        <div class="border-t border-dashed border-gray-500"></div>
+        <div class="flex justify-between text-base"><span>TOTAL</span><span>$[XX,XXX]</span></div>
+        <div class="text-center text-gray-600">per year · 2-yr minimum</div>
+      </figure>
+
+      <figure aria-label="Illustration: the Archboard bill" class="relative mt-12 flex w-65 rotate-5 flex-col gap-2.5 rounded-md bg-primary-500 px-5.5 pt-6 pb-7 text-black shadow-[0_30px_60px_rgba(0,0,0,.5)]">
+        <div class="text-center tracking-[0.1em]">ARCHBOARD</div>
+        <div class="border-t border-dashed border-black"></div>
+        {ours.map(([k, v]) => <div class="flex justify-between"><span>{k}</span><span>{v}</span></div>)}
+        <div class="border-t border-dashed border-black"></div>
+        <div class="flex justify-between text-base"><span>TOTAL</span><span>$0.00</span></div>
+        <div class="absolute -right-4.5 -bottom-5.5 -rotate-14 rounded-lg border-3 border-black bg-amber-400 px-2.5 py-1.5 font-sans text-sm font-bold tracking-[0.06em]">
+          PAID IN GOOD IDEAS
+        </div>
+      </figure>
+    </div>
+  </div>
+</Container>

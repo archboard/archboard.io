@@ -1,0 +1,26 @@
+---
+import Container from './Container.astro'
+import GrainGlow from './GrainGlow.astro'
+import { links, href } from '../data/apps'
+---
+
+<section aria-labelledby="cta-title" class="px-4 pb-4">
+  <div class="relative isolate overflow-hidden rounded-4xl bg-primary-500 py-[clamp(48px,7vw,112px)] text-black">
+    <GrainGlow
+      glows={[
+        { color: '#ffb900', size: 620, at: 'right:-180px;top:-300px', blur: 90, opacity: 0.95 },
+        { color: '#ff2056', size: 480, at: 'right:140px;bottom:-300px', blur: 96, opacity: 0.8 },
+        { color: '#8e51ff', size: 360, at: 'left:-160px;bottom:-220px', blur: 96, opacity: 0.45 },
+      ]}
+    />
+    <Container class="relative flex flex-col gap-10">
+      <h2 id="cta-title" class="max-w-[13ch] font-display text-[clamp(52px,8vw,136px)] leading-[0.92] font-normal tracking-[-0.025em]">
+        Let's make school software <em>less weird.</em>
+      </h2>
+      <div class="flex flex-wrap gap-3">
+        <a href="#contribute" class="btn min-h-14 bg-black px-6.5 text-[17px] text-white hover:bg-gray-900">Share an idea</a>
+        <a href={links.email.startsWith('[') ? '#' : `mailto:${links.email}`} class="btn min-h-14 border-2 border-black px-6.5 text-[17px] text-black hover:bg-black/10">Say hi: {links.email}</a>
+      </div>
+    </Container>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+---
+import Container from './Container.astro'
+---
+
+<Container as="section" id="grant" aria-labelledby="grant-title" class="flex flex-wrap items-center gap-20 py-35">
+  <figure class="relative mx-auto min-w-0 max-w-105 flex-[1_1_340px] -rotate-3 rounded bg-gray-50 px-4.5 pt-4.5 pb-16 shadow-[0_40px_80px_rgba(0,0,0,.6)]">
+    <div aria-hidden="true" class="absolute -top-4.5 left-1/2 h-9 w-30 -translate-x-1/2 rotate-4 bg-amber-400/85"></div>
+    <!-- Replace with <img src="/grant.jpg" alt="Grant Holle" class="aspect-4/5 w-full object-cover" /> -->
+    <div class="flex aspect-4/5 items-center justify-center bg-gray-800 text-[15px] text-gray-300">[Photo of Grant]</div>
+    <figcaption class="absolute inset-x-0 bottom-4 text-center font-display text-2xl text-gray-900 italic">[a funny caption]</figcaption>
+  </figure>
+
+  <div class="flex min-w-0 flex-[999_1_520px] flex-col gap-7">
+    <span class="eyebrow">05 / WHO'S BEHIND THIS</span>
+    <h2 id="grant-title" class="headline text-[clamp(44px,6vw,88px)] leading-none">
+      Hi, I'm Grant. <em class="text-amber-400">I got fed up.</em>
+    </h2>
+    <p class="font-display text-[clamp(24px,2.4vw,32px)] leading-[1.35] text-gray-200">
+      After 10 years of building software for education, it's time we build something different. Together.
+    </p>
+    <div class="max-w-[60ch] text-[17px]/relaxed text-gray-400 space-y-4">
+      <p>
+        I founded Archboard after being unsatisfied with a lot of the long-neglected parts of education software. Classroom tech gets all the attention, for better or worse. But what about everyone else?
+      </p>
+      <p>
+        After the dizzying sales process for other software offerings, I knew there had to be a better way. One that was streamlined and integrated with what schools use most often: PowerSchool. For all its faults, it's where schools keep their source-of-truth data. Why reinvent the wheel (yet)?
+      </p>
+      <p>
+        I'm convinced that we live in a time when we can all contribute to something bigger and better without all the baggage that used to come with buying and using software.
+      </p>
+    </div>
+    <div class="flex flex-wrap items-center gap-4">
+      <span class="inline-block -rotate-4 font-display text-[40px] text-primary-500 italic">Grant</span>
+      <span class="text-[15px] text-gray-400">Founder, Archboard · since 2021</span>
+    </div>
+  </div>
+</Container>

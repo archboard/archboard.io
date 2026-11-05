@@ -1,0 +1,25 @@
+---
+/** Soft blurred color glows plus film grain, for static brand panels. Place inside a `relative overflow-hidden` parent. */
+interface Glow {
+  color: string
+  size: number
+  /** Inline position, e.g. 'right:-140px;top:-200px'. */
+  at: string
+  blur?: number
+  opacity?: number
+}
+
+const { glows } = Astro.props as { glows: Glow[] }
+---
+
+<div aria-hidden="true" class="pointer-events-none absolute inset-0">
+  {
+    glows.map((g) => (
+      <div
+        class="absolute rounded-full"
+        style={`width:${g.size}px;height:${g.size}px;background:${g.color};${g.at};filter:blur(${g.blur ?? 80}px);opacity:${g.opacity ?? 0.9}`}
+      />
+    ))
+  }
+  <div class="grain"></div>
+</div>
