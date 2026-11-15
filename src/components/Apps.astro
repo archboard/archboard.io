@@ -10,7 +10,7 @@ import { apps, links, href } from '../data/apps'
     <div class="flex flex-col gap-5">
       <span class="eyebrow">03 / THE APPS</span>
       <h2 id="apps-title" class="headline max-w-[13ch] text-[clamp(48px,7vw,112px)]">Built in the open. Used in real schools.</h2>
-      <p class="max-w-[44ch] text-xl/relaxed text-gray-300">Already on PowerSchool? Most of our apps work with it.</p>
+      <p class="max-w-[44ch] text-xl/relaxed text-gray-300">PowerSchool is a first-class citizen. ClassLink support coming soon.</p>
     </div>
     <a href={href(links.github)} class="inline-flex min-h-11 items-center text-[17px] font-semibold text-primary-500 no-underline hover:text-amber-400">Source code →</a>
   </div>
@@ -22,15 +22,15 @@ import { apps, links, href } from '../data/apps'
           <LavaPanel colors={app.lava} class="flex h-75 items-center justify-center" >
             <div class="absolute inset-0 -z-20" style={`background:${app.background}`} />
             <Logo gradient={app.mark} class="size-35 drop-shadow-[0_18px_36px_rgba(0,0,0,.45)]" />
-            {app.flagship && (
-              <span class="absolute top-4 left-4 inline-flex min-h-7 items-center rounded-full bg-black px-3 text-xs font-semibold tracking-[0.04em]">FLAGSHIP</span>
+            {app.featured_pill && (
+              <span class="absolute top-4 left-4 inline-flex min-h-7 items-center rounded-full bg-black px-3 text-xs font-semibold tracking-[0.04em]">{app.featured_pill}</span>
             )}
           </LavaPanel>
           <div class="flex grow flex-col gap-3 p-7">
             <h3 class="font-display text-4xl leading-[1.05]">{app.name}</h3>
             <p class="grow text-base/relaxed text-gray-400">{app.description}</p>
             <div class="flex flex-wrap gap-2 font-mono text-xs text-gray-300">
-              {app.powerschool && <span class="rounded-full px-2.5 py-1 font-semibold text-black" style={`background:${app.accent}`}>Works with PowerSchool</span>}
+              {app.brand_pill && <span class="rounded-full px-2.5 py-1 font-semibold text-black" style={`background:${app.accent}`}>{app.brand_pill}</span>}
               {app.tags.map((tag) => <span class="rounded-full border border-gray-700 px-2.5 py-1">{tag}</span>)}
             </div>
             <div class="mt-2 flex flex-wrap gap-x-6" style={`color:${app.accent}`}>
