@@ -1,12 +1,13 @@
 ---
 import Container from './Container.astro'
 import Logo from './Logo.astro'
+import { flagship } from '../data/apps'
 
 const nav = [
   { label: 'Apps', href: '#apps' },
   { label: 'Hosting', href: '#hosting' },
-  { label: 'Get involved', href: '#contribute' },
   { label: "Hi, I'm Grant", href: '#grant' },
+  { label: 'Get involved', href: '#contribute' },
 ]
 ---
 
@@ -24,5 +25,5 @@ const nav = [
       ))
     }
   </nav>
-  <a href="#contribute" class="btn-outline">Share an idea</a>
+  <a href={flagship.demo} class="btn-outline">Try the demo</a>
 </Container>

@@ -1,0 +1,57 @@
+---
+import Container from './Container.astro'
+import { flagship, links, href } from '../data/apps'
+
+// One card per kind of visitor. Each names what that person came to find out and links straight to it.
+const roles = [
+  {
+    who: 'TEACHERS & OFFICE STAFF',
+    title: 'You want to see it first.',
+    body: `Try ${flagship.name} with sample data. No sign-up, no sales call.`,
+    links: [{ label: 'Try the demo', href: flagship.demo! }],
+    color: 'bg-primary-500',
+  },
+  {
+    who: 'ADMINISTRATORS',
+    title: 'You want the price before the meeting.',
+    body: `${flagship.hosting!.price}. Pay by PO. No multi-year lock-in.`,
+    links: [{ label: 'See pricing', href: flagship.hosting!.url }],
+    color: 'bg-amber-400',
+  },
+  {
+    who: 'IT',
+    title: 'You want to read the code.',
+    body: 'Run it on your own servers for free. Same app, nothing held back. Or let us host it.',
+    links: [
+      { label: 'Setup guide', href: links.selfHosting },
+      { label: 'Source code', href: links.github },
+    ],
+    color: 'bg-rose-500',
+  },
+]
+---
+
+<Container as="section" id="roles" aria-labelledby="roles-title" class="flex flex-col gap-14 pt-30 pb-10">
+  <div class="flex flex-col gap-5">
+    <span class="eyebrow">01 / START HERE</span>
+    <h2 id="roles-title" class="headline text-[clamp(48px,7vw,112px)]">Who's <em class="text-primary-500">asking?</em></h2>
+  </div>
+
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
+    {
+      roles.map((role) => (
+        <article class="relative flex flex-col gap-4 overflow-hidden rounded-3xl border border-gray-800 bg-gray-950 p-8">
+          <div aria-hidden="true" class={`absolute inset-x-0 top-0 h-0.75 ${role.color}`} />
+          <span class="font-mono text-[13px] tracking-[0.06em] text-gray-400">{role.who}</span>
+          <h3 class="font-display text-4xl leading-[1.05]">{role.title}</h3>
+          <p class="grow text-base/relaxed text-gray-400">{role.body}</p>
+          <div class="flex flex-wrap gap-x-6">
+            {role.links.map((link) => (
+              <a href={href(link.href)} class="inline-flex min-h-11 items-center text-[15px] font-semibold text-primary-500 no-underline hover:text-amber-400">{link.label} →</a>
+            ))}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</Container>

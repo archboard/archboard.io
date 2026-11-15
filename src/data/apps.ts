@@ -10,6 +10,8 @@ export interface App {
   /** Shows the "Works with PowerSchool" badge, the main thing schools look for. */
   powerschool?: boolean
   url: string
+  /** A public demo anyone can click into without signing up. */
+  demo?: string
   /** Lava blob colors, drawn over `background`. */
   lava: string[]
   background: string
@@ -17,7 +19,8 @@ export interface App {
   mark: [string, string, string]
   /** Link color on black, readable at 4.5:1. */
   accent: string
-  hosting?: { label: string; price: string; url: string }
+  /** `short` is the price where there is only room for a few words. */
+  hosting?: { label: string; price: string; short: string; url: string }
 }
 
 export const apps: App[] = [
@@ -28,6 +31,7 @@ export const apps: App[] = [
     flagship: true,
     powerschool: true,
     url: 'https://tidalptc.com/',
+    demo: 'https://demo.tidalptc.app/',
     // teal-400, cyan-300, #047481, sky-500, emerald-400 on teal-950
     lava: ['#2dd4bf', '#53eafd', '#047481', '#00a6f4', '#00d492'],
     background: '#042f2e',
@@ -36,6 +40,7 @@ export const apps: App[] = [
     hosting: {
       label: 'Tidal PTC Cloud',
       price: 'From $450 a year · districts capped at $4,000',
+      short: 'from $450/yr',
       url: 'https://tidalptc.com/#pricing',
     },
   },
@@ -52,12 +57,14 @@ export const apps: App[] = [
   },
 ]
 
+/** The app the page leads with: its demo and pricing are the main calls to action. */
+export const flagship = apps.find((app) => app.flagship)!
+
 /** Links that still need real destinations are left as '#'. */
 export const links = {
-  github: '[GITHUB ORG URL]',
-  contributing: '[CONTRIBUTOR GUIDE URL]',
-  wishlist: '[IDEA WISHLIST URL]',
-  newIssue: '[NEW ISSUE URL]',
+  github: 'https://github.com/archboard',
+  contributing: 'https://tidalptc.com/contributing/',
+  newIssue: 'https://github.com/archboard/tidal-ptc/issues/new',
   selfHosting: 'https://tidalptc.com/installation/docker/',
   quote: 'https://billing.archboard.io',
   billing: 'https://billing.archboard.io/login',

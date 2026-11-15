@@ -1,6 +1,7 @@
 ---
 import Container from './Container.astro'
 import LavaPanel from './LavaPanel.astro'
+import { flagship } from '../data/apps'
 
 const ring = 'NO SEATS · NO CONTRACTS · NO NONSENSE ·'
 ---
@@ -35,14 +36,14 @@ const ring = 'NO SEATS · NO CONTRACTS · NO NONSENSE ·'
         </h1>
         <div class="flex flex-wrap items-end justify-between gap-x-12 gap-y-6">
           <p class="max-w-130 text-xl/normal font-medium text-black">
-            [One or two sentences: Archboard makes open-source apps for schools, and the community makes them better.]
+            Open-source apps for schools, starting with parent-teacher conference scheduling that works with PowerSchool. The apps are free. We'll host them for a published price if you'd rather not.
           </p>
           <div class="flex flex-wrap gap-3">
-            <a href="#apps" class="btn min-h-14 bg-black px-6.5 text-[17px] text-white hover:bg-gray-900">
-              See the apps
+            <a href={flagship.demo} class="btn min-h-14 bg-black px-6.5 text-[17px] text-white hover:bg-gray-900">
+              Try the demo
               <svg class="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
             </a>
-            <a href="#contribute" class="btn min-h-14 border-2 border-black px-6.5 text-[17px] text-black hover:bg-black/10">Help shape them</a>
+            <a href="#apps" class="btn min-h-14 border-2 border-black px-6.5 text-[17px] text-black hover:bg-black/10">See the apps</a>
           </div>
         </div>
       </div>

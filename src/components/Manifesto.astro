@@ -1,13 +1,15 @@
 ---
 import Container from './Container.astro'
+import { flagship } from '../data/apps'
 const struck = ['Per-seat pricing', 'Multi-year contracts', '“Contact sales for pricing”', 'Implementation fees', 'Features held for ransom']
 
 const vendor = [
-  ['Licence', '$[X,XXX]'],
-  ['Per school', '$[XXX]'],
-  ['Setup fee', '$[X,XXX]'],
-  ['Support tier', '$[XXX]'],
-  ['Yearly bump', '+[X]%'],
+  // Words, not numbers: real vendor prices come from private quotes, and we don't invent them.
+  ['Licence', 'call us'],
+  ['Per school', 'yes'],
+  ['Setup fee', 'also yes'],
+  ['Support tier', 'extra'],
+  ['Yearly bump', 'surprise!'],
 ]
 const ours = [
   ['The app', '$0'],
@@ -19,7 +21,7 @@ const ours = [
 
 <Container as="section" id="manifesto" aria-labelledby="manifesto-title" class="flex flex-col gap-18 pt-35 pb-30">
   <div class="flex flex-col gap-5">
-    <span class="eyebrow">01 / THE STATUS QUO</span>
+    <span class="eyebrow">02 / THE STATUS QUO</span>
     <h2 id="manifesto-title" class="headline max-w-[14ch] text-[clamp(48px,7vw,112px)]">
       Software got <em class="text-primary-500">weird.</em>
     </h2>
@@ -37,7 +39,7 @@ const ours = [
         <div class="border-t border-dashed border-gray-500"></div>
         {vendor.map(([k, v]) => <div class="flex justify-between"><span>{k}</span><span>{v}</span></div>)}
         <div class="border-t border-dashed border-gray-500"></div>
-        <div class="flex justify-between text-base"><span>TOTAL</span><span>$[XX,XXX]</span></div>
+        <div class="flex justify-between text-base"><span>TOTAL</span><span>ask sales</span></div>
         <div class="text-center text-gray-600">per year · 2-yr minimum</div>
       </figure>
 
@@ -47,6 +49,7 @@ const ours = [
         {ours.map(([k, v]) => <div class="flex justify-between"><span>{k}</span><span>{v}</span></div>)}
         <div class="border-t border-dashed border-black"></div>
         <div class="flex justify-between text-base"><span>TOTAL</span><span>$0.00</span></div>
+        <div class="text-center">hosting optional · {flagship.hosting!.short}</div>
         <div class="absolute -right-4.5 -bottom-5.5 -rotate-14 rounded-lg border-3 border-black bg-amber-400 px-2.5 py-1.5 font-sans text-sm font-bold tracking-[0.06em]">
           PAID IN GOOD IDEAS
         </div>

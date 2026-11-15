@@ -34,5 +34,5 @@ Or connect the repo to Cloudflare Pages/Workers Builds with build command `npm r
 ## Placeholders
 
 Copy in `[brackets]` is placeholder text. Links set to `[SOMETHING]` in `src/data/apps.ts` render as `#` until filled in:
-GitHub org, contributor guide, idea wishlist, new-issue link, Harbor Help Desk URL and contact email.
+the Harbor Help Desk URL.
 The founder photo goes in `public/` (see the comment in `Founder.astro`).

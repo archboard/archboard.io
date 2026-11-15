@@ -8,11 +8,11 @@ import { apps, links, href } from '../data/apps'
 <Container as="section" id="apps" aria-labelledby="apps-title" class="flex flex-col gap-14 pt-20 pb-30">
   <div class="flex flex-wrap items-end justify-between gap-6">
     <div class="flex flex-col gap-5">
-      <span class="eyebrow">02 / THE APPS</span>
+      <span class="eyebrow">03 / THE APPS</span>
       <h2 id="apps-title" class="headline max-w-[13ch] text-[clamp(48px,7vw,112px)]">Built in the open. Used in real schools.</h2>
       <p class="max-w-[44ch] text-xl/relaxed text-gray-300">Already on PowerSchool? Most of our apps work with it.</p>
     </div>
-    <a href={href(links.github)} class="inline-flex min-h-11 items-center text-[17px] font-semibold text-primary-500 no-underline hover:text-amber-400">See all apps →</a>
+    <a href={href(links.github)} class="inline-flex min-h-11 items-center text-[17px] font-semibold text-primary-500 no-underline hover:text-amber-400">Source code →</a>
   </div>
 
   <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
@@ -33,9 +33,10 @@ import { apps, links, href } from '../data/apps'
               {app.powerschool && <span class="rounded-full px-2.5 py-1 font-semibold text-black" style={`background:${app.accent}`}>Works with PowerSchool</span>}
               {app.tags.map((tag) => <span class="rounded-full border border-gray-700 px-2.5 py-1">{tag}</span>)}
             </div>
-            <a href={href(app.url)} class="mt-2 inline-flex min-h-11 items-center text-[15px] font-semibold no-underline hover:underline" style={`color:${app.accent}`}>
-              Learn more →
-            </a>
+            <div class="mt-2 flex flex-wrap gap-x-6" style={`color:${app.accent}`}>
+              {app.demo && <a href={app.demo} class="inline-flex min-h-11 items-center text-[15px] font-semibold text-inherit no-underline hover:underline">Try the demo →</a>}
+              <a href={href(app.url)} class="inline-flex min-h-11 items-center text-[15px] font-semibold text-inherit no-underline hover:underline">Learn more →</a>
+            </div>
           </div>
         </article>
       ))

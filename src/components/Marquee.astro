@@ -10,9 +10,7 @@ const loop = [...words, ...words]
       loop.map((word) => (
         <span class="inline-flex items-center gap-9 pr-9 font-display text-6xl leading-none whitespace-nowrap">
           {word}
-          <svg class="size-8.5" viewBox="0 0 24 24" fill="none" stroke="#ff6900" stroke-width="3" stroke-linecap="round">
-            <path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1" />
-          </svg>
+          <span class="font-mono text-5xl text-primary-500">/</span>
         </span>
       ))
     }
