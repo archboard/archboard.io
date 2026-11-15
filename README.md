@@ -24,6 +24,7 @@ Or connect the repo to Cloudflare Pages/Workers Builds with build command `npm r
 ## Where things live
 
 - `src/pages/index.astro`: the homepage, one component per section
+- `src/pages/404.astro`: the not-found page, with the lost and found box. Cloudflare serves it for unknown URLs (`not_found_handling` in `wrangler.jsonc`).
 - `src/components/Container.astro`: the page's one content width. Use `as="section"` when it is also the landmark.
 - `src/components/LavaPanel.astro`: the WebGL lava background, ported from archboard-billing's `LavaPanel.vue`. Pass `colors`; the panel's own background shows behind the lava. Pauses off-screen, and draws one still frame for reduced motion or software rendering.
 - `src/components/Logo.astro`: the "A" mark. Every product uses it with its own `gradient`.

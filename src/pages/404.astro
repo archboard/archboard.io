@@ -1,0 +1,154 @@
+---
+import Base from '../layouts/Base.astro'
+import Container from '../components/Container.astro'
+import LavaPanel from '../components/LavaPanel.astro'
+import Logo from '../components/Logo.astro'
+
+const ring = 'NO PAGE · NO PANIC · NO NONSENSE ·'
+
+/** Pulled out of the box in this order. The last one is the punchline, so keep it last. */
+const items = [
+  { name: 'One glove', note: "Left hand. It's always the left hand." },
+  { name: 'A recorder', note: 'Still works. Unfortunately.' },
+  { name: 'A retainer', note: "We're not touching that. Neither should you." },
+  { name: 'A water bottle', note: 'Mostly stickers. Here since September.' },
+  { name: 'A permission slip', note: 'Signed. For a field trip three years ago.' },
+  { name: 'A laptop charger', note: 'Your IT person has been looking for this.' },
+  { name: 'A lunchbox', note: 'Do not open the lunchbox.' },
+  { name: 'A per-seat software contract', note: 'Forty pages. Somebody lost this on purpose.' },
+]
+
+// Fixed tilts so the pile looks tossed without any client-side randomness.
+const tilts = [-3, 2, -1.5, 3, -2.5, 1.5, -2, 2.5]
+---
+
+<Base title="Page not found — Archboard" description="This page is missing. We checked the lost and found.">
+  <!-- The main Header and Footer link to homepage anchors, which go nowhere from here. -->
+  <Container as="header" class="flex min-h-19 items-center py-2">
+    <a href="/" class="flex min-h-11 items-center gap-2.5 text-white no-underline">
+      <Logo class="size-7.5" />
+      <span class="text-[17px] font-bold tracking-tight">Archboard</span>
+    </a>
+  </Container>
+
+  <main class="pb-20">
+    <section aria-labelledby="lost-title" class="px-4">
+      <LavaPanel
+        colors={['#ff2056', '#ffb900', '#ffb900', '#155dfc', '#8e51ff']}
+        class="rounded-4xl bg-primary-500"
+      >
+        <Container class="flex flex-col gap-10 pt-10 pb-[clamp(32px,5vw,64px)] text-black">
+          <div class="flex flex-wrap items-start justify-between gap-6">
+            <span class="inline-flex min-h-9 items-center gap-2 rounded-full bg-black px-3.5 font-mono text-[13px] tracking-[0.02em] text-white">
+              <span class="size-2 rounded-full bg-amber-400" aria-hidden="true"></span>404 · Page not found
+            </span>
+
+            <div class="relative size-44 shrink-0 animate-bob" aria-hidden="true">
+              <svg viewBox="0 0 176 176" class="absolute inset-0 size-full animate-spin-slow">
+                <defs><path id="ring" d="M88,88 m-66,0 a66,66 0 1,1 132,0 a66,66 0 1,1 -132,0"></path></defs>
+                <circle cx="88" cy="88" r="86" fill="#000"></circle>
+                <text fill="#ff6900" class="font-mono text-[13px] tracking-[0.18em]"><textPath href="#ring">{ring}</textPath></text>
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+                <span class="font-display text-[52px] leading-none">404</span>
+                <span class="text-xs font-semibold tracking-[0.08em] text-amber-400 uppercase">absent</span>
+              </div>
+            </div>
+          </div>
+
+          <h1 id="lost-title" class="max-w-[12ch] font-display text-[clamp(60px,10.5vw,168px)] leading-[0.9] font-normal tracking-[-0.025em]">
+            This page is <em>missing.</em>
+          </h1>
+          <div class="flex flex-wrap items-end justify-between gap-x-12 gap-y-6">
+            <p class="max-w-130 text-xl/normal font-medium">
+              Nothing lives at <code data-lost-path class="font-mono text-[0.9em] break-all">this address</code>. It moved, or it was never here. We checked the lost and found anyway.
+            </p>
+            <a href="/" class="btn min-h-14 bg-black px-6.5 text-[17px] text-white hover:bg-gray-900">
+              Back to the homepage
+              <svg class="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </a>
+          </div>
+        </Container>
+      </LavaPanel>
+    </section>
+
+    <!-- Needs JS to do anything, so it stays hidden until the script shows it. -->
+    <Container as="section" aria-labelledby="box-title" class="flex flex-col gap-8 pt-20" data-lost-box hidden>
+      <div class="flex flex-col gap-4">
+        <p class="eyebrow">THE LOST AND FOUND</p>
+        <h2 id="box-title" class="headline text-[clamp(40px,5.5vw,76px)]">Look for yourself.</h2>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
+        <button type="button" class="btn-primary" data-rummage>Rummage through the box</button>
+        <p class="font-mono text-sm text-gray-400" data-lost-count></p>
+      </div>
+
+      <ul class="flex flex-wrap items-start gap-4" aria-live="polite">
+        {
+          items.map((item, i) => (
+            <li
+              hidden
+              data-lost-item
+              style={`rotate: ${tilts[i % tilts.length]}deg`}
+              class="tag flex max-w-80 scroll-mb-6 items-start gap-3.5 rounded-xl bg-primary-200 py-4 pr-5 pl-4 text-black"
+            >
+              <span class="mt-1 size-3.5 shrink-0 rounded-full bg-black" aria-hidden="true" />
+              <span class="flex flex-col gap-1">
+                <span class="font-mono text-xs tracking-[0.06em]">ITEM {String(i + 1).padStart(2, '0')}</span>
+                <span class="font-display text-2xl leading-tight">{item.name}</span>
+                <span class="text-[15px]/snug font-medium">{item.note}</span>
+              </span>
+            </li>
+          ))
+        }
+        <li hidden data-lost-item class="tag flex max-w-96 scroll-mb-6 basis-full flex-col gap-2 rounded-xl border border-gray-700 p-5">
+          <span class="font-mono text-xs tracking-[0.06em] text-primary-500">BOTTOM OF THE BOX</span>
+          <span class="font-display text-2xl leading-tight">That's everything.</span>
+          <span class="text-[15px]/snug text-gray-300">
+            Your page isn't in here. The <a href="/" class="font-semibold text-white underline underline-offset-4">homepage</a> is right where we left it.
+          </span>
+        </li>
+      </ul>
+    </Container>
+  </main>
+</Base>
+
+<style>
+  /* Runs each time a tag is un-hidden. The global reduced-motion rule turns it off. */
+  .tag {
+    animation: pull 0.35s cubic-bezier(0.2, 1.4, 0.4, 1) backwards;
+  }
+  @keyframes pull {
+    from {
+      opacity: 0;
+      transform: translateY(28px) scale(0.9);
+    }
+  }
+</style>
+
+<script>
+  const box = document.querySelector<HTMLElement>('[data-lost-box]')!
+  const button = box.querySelector<HTMLButtonElement>('[data-rummage]')!
+  const count = box.querySelector<HTMLElement>('[data-lost-count]')!
+  const items = [...box.querySelectorAll<HTMLElement>('[data-lost-item]')]
+  // The last "item" is the bottom of the box, not something to count.
+  const total = items.length - 1
+  let pulled = 0
+
+  // textContent, so whatever was typed in the address bar can't become markup.
+  document.querySelector('[data-lost-path]')!.textContent = decodeURI(location.pathname)
+  box.hidden = false
+
+  button.addEventListener('click', () => {
+    if (pulled === items.length) {
+      items.forEach((item) => (item.hidden = true))
+      pulled = 0
+    } else {
+      const item = items[pulled++]
+      item.hidden = false
+      item.scrollIntoView({ block: 'nearest' })
+    }
+    button.textContent = pulled === items.length ? 'Put it all back' : pulled ? 'Keep rummaging' : 'Rummage through the box'
+    count.textContent = pulled ? `${Math.min(pulled, total)} of ${total} items, none of them your page` : ''
+  })
+</script>
