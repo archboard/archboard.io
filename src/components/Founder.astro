@@ -1,5 +1,6 @@
 ---
 import Container from './Container.astro'
+import { links } from '../data/apps'
 ---
 
 <Container as="section" id="grant" aria-labelledby="grant-title" class="flex flex-wrap items-center gap-20 py-35">
@@ -16,22 +17,26 @@ import Container from './Container.astro'
       Hi, I'm Grant. <em class="text-amber-400">I got fed up.</em>
     </h2>
     <p class="font-display text-[clamp(24px,2.4vw,32px)] leading-[1.35] text-gray-200">
-      After 10 years of building software for education, it's time we build something different. Together.
+      After 10 years of building software for schools and educators, it's time we build something different. Together.
     </p>
     <div class="max-w-[60ch] text-[17px]/relaxed text-gray-400 space-y-4">
       <p>
-        I founded Archboard after being unsatisfied with a lot of the long-neglected parts of education software. Classroom tech gets all the attention, for better or worse. But what about everyone else?
+        I founded Archboard after being unsatisfied with the tools that existed for everyone outside of the classroom like the front office and IT. Classroom tech gets all the attention, for better or worse. But what about everyone else?
       </p>
       <p>
-        After the dizzying sales process for other software offerings, I knew there had to be a better way. One that was streamlined and integrated with what schools use most often: PowerSchool. For all its faults, it's where schools keep their source-of-truth data. Why reinvent the wheel (yet)?
+        After never finding clear pricing or sitting through another pointless sales call for an app I needed, I knew there had to be a better way. One that is streamlined and integrated with what schools use most often: PowerSchool. For all its faults, it's where schools already keep their student and guardian records. Why reinvent the wheel (at least for now)?
       </p>
       <p>
-        I'm convinced that we live in a time when we can all contribute to something bigger and better without all the baggage that used to come with buying and using software.
+        I'm convinced that we live in a time when we can all contribute to something bigger without all the baggage that used to come with buying and using software. First on that list: a never-ending license subscription. The apps are free, and you pay only if you want Archboard to host them.
       </p>
     </div>
     <div class="flex flex-wrap items-center gap-4">
       <span class="inline-block -rotate-4 font-display text-[40px] text-primary-500 italic">Grant</span>
       <span class="text-[15px] text-gray-400">Founder, Archboard · since 2021</span>
+    </div>
+    <div class="flex flex-wrap items-center gap-x-6 text-[17px]">
+      <a href="#contribute" class="inline-flex min-h-11 items-center text-primary-500 underline underline-offset-4 hover:text-primary-400">See how to help build it</a>
+      <a href={`mailto:${links.email}`} class="inline-flex min-h-11 items-center text-gray-300 underline underline-offset-4 hover:text-gray-50">Or just email me: {links.email}</a>
     </div>
   </div>
 </Container>
