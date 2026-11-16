@@ -16,14 +16,14 @@ const nav = [
     <Logo class="size-7.5" />
     <span class="text-[17px] font-bold tracking-tight">Archboard</span>
   </a>
-  <nav aria-label="Main" class="flex grow flex-wrap gap-1">
+  <nav aria-label="Main" class="flex grow flex-wrap gap-1 max-lg:order-3 max-lg:w-full">
     {
       nav.map((item) => (
-        <a href={item.href} class="inline-flex min-h-11 items-center px-3 text-[15px] font-medium text-gray-300 no-underline hover:text-white">
+        <a href={item.href} class="inline-flex min-h-11 items-center px-1.5 text-[15px] font-medium text-gray-300 no-underline hover:text-white lg:px-3">
           {item.label}
         </a>
       ))
     }
   </nav>
-  <a href={flagship.demo} class="btn-outline">Try the demo</a>
+  <a href={flagship.demo} class="btn-outline max-lg:order-2 max-lg:ml-auto">Try the demo</a>
 </Container>
