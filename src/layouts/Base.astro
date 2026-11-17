@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import { links } from '../data/apps'
 
 interface Props {
   title?: string
@@ -11,6 +12,30 @@ const {
   description = 'Archboard builds free, open-source apps for schools, and the community makes them better.',
 } = Astro.props
 const canonical = new URL(Astro.url.pathname, Astro.site)
+const home = Astro.site!.href
+
+// Structured data so search engines know who runs the site. Only facts already on the page.
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${home}#organization`,
+      name: 'Archboard',
+      url: home,
+      logo: new URL('/favicon.svg', home).href,
+      email: links.email,
+      sameAs: [links.github],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${home}#website`,
+      name: 'Archboard',
+      url: home,
+      publisher: { '@id': `${home}#organization` },
+    },
+  ],
+}
 ---
 
 <!doctype html>
@@ -33,6 +58,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site)
     <meta property="og:image:alt" content="Archboard: Free, open-source apps for schools." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={new URL('/og.png', Astro.site)} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
   <body class="overflow-x-hidden">
     <slot />
